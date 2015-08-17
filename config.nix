@@ -62,6 +62,7 @@
         chromium
 
         bluejeans
+        hipchat
 
         go
 
