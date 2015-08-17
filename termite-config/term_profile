@@ -1,0 +1,12 @@
+#!bin/bash
+
+PS1='${debian_chroot:+($debian_chroot)}\[\033[35m\]\t\[\033[m\]:\[\033[33;1m\]\w\[\033[00m\]\$ '
+
+eval "$(dircolors -b ~/.dircolors)"
+alias ls='ls --color=auto'
+
+if [[ $TERM == xterm-termite ]]; then
+  . @vte@/etc/profile.d/vte.sh
+  __vte_prompt_command
+  export TERM="xterm-256color"
+fi

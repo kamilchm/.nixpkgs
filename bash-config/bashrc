@@ -1,0 +1,4 @@
+source ~/.term_profile
+
+source @fzf_base@/shell/key-bindings.bash
+export FZF_TMUX=0
