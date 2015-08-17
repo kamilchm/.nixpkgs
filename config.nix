@@ -65,9 +65,15 @@
         bluejeans
         hipchat
 
+        cloc
+
         python27Packages.virtualenvwrapper
 
         go
+
+        oraclejdk8
+
+        ansible
 
         gftp
 
