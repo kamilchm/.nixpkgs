@@ -69,7 +69,6 @@ keys = [
 
     Key([mod], "r", lazy.spawncmd()),
     Key([mod], "q", lazy.spawn("xfce4-appfinder --disable-server")),
-    Key([mod], "v", lazy.spawn("xfce4-popup-clipman")),
 
     Key([], 'Print', lazy.spawn("xfce4-screenshooter")),
 
@@ -180,7 +179,7 @@ def execute_once(process):
 def startup():
     def blocking():
         sleep(1)
-        #execute_once(['xfce4-clipman'])
+        execute_once(['clipit'])
         execute_once(['nm-applet'])
         execute_once(['pasystray'])
 
