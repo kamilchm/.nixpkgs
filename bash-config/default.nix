@@ -1,4 +1,4 @@
-{stdenv, fzf}:
+{stdenv, fzf, virtualenvwrapper}:
 
 stdenv.mkDerivation rec {
   name = "bash-config";
@@ -9,6 +9,8 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     install -dm 755 $out/userHome
-    substitute $src/bashrc $out/userHome/.bashrc --subst-var-by fzf_base ${fzf}/share/go/src/github.com/junegunn/fzf
+    substitute $src/bashrc $out/userHome/.bashrc \
+      --subst-var-by fzf_base ${fzf}/share/go/src/github.com/junegunn/fzf
+    substituteInPlace $out/userHome/.bashrc --subst-var-by virtualenvwrapper ${virtualenvwrapper}
   '';
 }

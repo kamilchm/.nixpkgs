@@ -24,6 +24,7 @@
     };
     bash-config = import ./bash-config {
       inherit (pkgs) stdenv fzf;
+      virtualenvwrapper = python27Packages.virtualenvwrapper;
     };
     my_vim = import ./vim-config { inherit pkgs; };
 
@@ -63,6 +64,8 @@
 
         bluejeans
         hipchat
+
+        python27Packages.virtualenvwrapper
 
         go
 
