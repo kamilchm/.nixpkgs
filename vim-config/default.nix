@@ -20,6 +20,7 @@ with pkgs; vim_configurable.customize {
       set incsearch
       set history=700
       set number
+      colorscheme molokai
     '';
 
     vam.knownPlugins = vimPlugins;
@@ -28,6 +29,8 @@ with pkgs; vim_configurable.customize {
         "ctrlp"
         "vim-addon-nix"
         "youcompleteme"
+        "molokai"
+        "fugitive"
       ]; }
     ];
   };
