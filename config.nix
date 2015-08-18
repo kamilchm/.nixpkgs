@@ -70,6 +70,7 @@
         python27Packages.virtualenvwrapper
 
         go
+        goPackages.glide
 
         oraclejdk8
 
