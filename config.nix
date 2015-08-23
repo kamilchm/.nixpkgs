@@ -74,6 +74,9 @@
 
         oraclejdk8
 
+        vagrant
+        rkt
+
         ansible
 
         gftp
