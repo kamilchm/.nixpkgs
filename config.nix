@@ -73,6 +73,7 @@
         goPackages.glide
 
         oraclejdk8
+        maven
 
         vagrant
         rkt
