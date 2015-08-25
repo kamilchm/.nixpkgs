@@ -1,5 +1,7 @@
 source ~/.term_profile
 
+export EDITOR=vim
+
 source @fzf_base@/shell/key-bindings.bash
 export FZF_TMUX=0
 
