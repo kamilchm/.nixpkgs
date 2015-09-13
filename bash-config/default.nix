@@ -10,7 +10,7 @@ stdenv.mkDerivation rec {
   installPhase = ''
     install -dm 755 $out/userHome
     substitute $src/bashrc $out/userHome/.bashrc \
-      --subst-var-by fzf_base ${fzf}/share/go/src/github.com/junegunn/fzf
+      --subst-var-by fzf_src ${fzf.src}
     substituteInPlace $out/userHome/.bashrc --subst-var-by virtualenvwrapper ${virtualenvwrapper}
   '';
 }
