@@ -6,3 +6,7 @@ source @fzf_src@/shell/key-bindings.bash
 export FZF_TMUX=0
 
 source @virtualenvwrapper@/bin/virtualenvwrapper.sh
+
+export GOPATH="/home/kamil/gows"
+export PATH="$GOPATH/bin:$PATH"
+export GO15VENDOREXPERIMENT=1
