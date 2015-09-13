@@ -20,6 +20,7 @@ with pkgs; vim_configurable.customize {
       set incsearch
       set history=700
       set number
+      set laststatus=2
       colorscheme molokai
     '';
 
@@ -31,6 +32,9 @@ with pkgs; vim_configurable.customize {
         "youcompleteme"
         "molokai"
         "fugitive"
+        "gitgutter"
+        "vim-airline"
+        "sleuth"
       ]; }
     ];
   };
