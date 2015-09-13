@@ -56,6 +56,7 @@
         ranger
         my_vim
 
+        git-radar
         gitg
         meld
 
