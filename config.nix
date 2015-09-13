@@ -4,6 +4,7 @@
   firefox = {
     enableGoogleTalkPlugin = true;
     enableAdobeFlash = true;
+    enableBluejeans = true;
   };
 
   chromium = {
@@ -70,7 +71,6 @@
         firefoxWrapper
         chromium
 
-        bluejeans
         hipchat
 
         cloc
