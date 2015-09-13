@@ -55,10 +55,17 @@
         silver-searcher
         ranger
         my_vim
+        gawp
+        atom
 
         git-radar
         gitg
         meld
+
+        mercurial
+
+        zip
+        unzip
 
         firefoxWrapper
         chromium
