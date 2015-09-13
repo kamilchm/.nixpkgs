@@ -35,6 +35,7 @@ with pkgs; vim_configurable.customize {
         "gitgutter"
         "vim-airline"
         "sleuth"
+        "vim-go"
       ]; }
     ];
   };
