@@ -83,6 +83,7 @@
         oraclejdk8
         maven
 
+        python27Packages.docker_compose
         vagrant
         rkt
 
