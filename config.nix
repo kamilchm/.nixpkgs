@@ -62,6 +62,7 @@
         git-radar
         gitg
         meld
+        tig
 
         mercurial
 
