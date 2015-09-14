@@ -1,5 +1,9 @@
 { pkgs }:
-with pkgs; vim_configurable.customize {
+
+let
+my_plugins = import ./plugins.nix { inherit (pkgs) vimUtils fetchgit; };
+
+in with pkgs; vim_configurable.customize {
   name = "vim";
   vimrcConfig = {
     customRC = ''
@@ -24,7 +28,7 @@ with pkgs; vim_configurable.customize {
       colorscheme molokai
     '';
 
-    vam.knownPlugins = vimPlugins;
+    vam.knownPlugins = vimPlugins // my_plugins;
     vam.pluginDictionaries = [
       { names = [
         "ctrlp"
@@ -36,6 +40,9 @@ with pkgs; vim_configurable.customize {
         "vim-airline"
         "sleuth"
         "vim-go"
+        "vim-javascript"
+        "vim-jsx"
+        "vim-scala"
       ]; }
     ];
   };
