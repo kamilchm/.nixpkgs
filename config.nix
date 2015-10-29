@@ -49,6 +49,8 @@
         pasystray
         pavucontrol
 
+        blueman
+
         arandr
 
         tree
@@ -69,8 +71,11 @@
         zip
         unzip
 
+        bc
+
         firefoxWrapper
         chromium
+        httpie
 
         hipchat
 
@@ -79,10 +84,13 @@
         python27Packages.virtualenvwrapper
 
         go
-        goPackages.glide
+        goPackages.glide.bin
 
         oraclejdk8
         maven
+        idea.idea-ultimate
+
+        nodejs
 
         python27Packages.docker_compose
         vagrant
@@ -93,7 +101,10 @@
         gftp
 
         evince
+        vlc
+        viewnior
 
+        spaceFM
         androidsdk_4_4
       ];
     };
