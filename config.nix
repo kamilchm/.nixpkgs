@@ -61,11 +61,13 @@
         gawp
         atom
 
+        git
         git-radar
         gitg
         meld
         tig
 
+        bazaar
         mercurial
 
         zip
@@ -99,6 +101,8 @@
         ansible
 
         gftp
+
+        pencil
 
         evince
         vlc
