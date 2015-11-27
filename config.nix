@@ -96,6 +96,12 @@
 
         nodejs
 
+        elmPackages.elm-compiler
+        elmPackages.elm-package
+        elmPackages.elm-make
+        elmPackages.elm-reactor
+        elmPackages.elm-repl
+
         ponyc
 
         python27Packages.docker_compose

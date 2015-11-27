@@ -1,5 +1,15 @@
 { vimUtils, fetchgit }:
 {
+  elm-vim = vimUtils.buildVimPluginFrom2Nix {
+    name = "elm.vim-2015-04-21";
+    src = fetchgit {
+      url = "git://github.com/lambdatoast/elm.vim";
+      rev = "916842745a73c73d25437ca17b88f32d8c944e1d";
+      sha256 = "1wkz5r8h6f4i0rhar787p4dvs6j02zxl9ki24pczgwql6j1dgkhp";
+    };
+    dependencies = [];
+  };
+
   pony-vim = vimUtils.buildVimPluginFrom2Nix {
     name = "pony.vim-2015-10-27";
     src = fetchgit {

@@ -43,6 +43,7 @@ in with pkgs; vim_configurable.customize {
         "vim-javascript"
         "vim-jsx"
         "vim-scala"
+        "elm-vim"
         "pony-vim"
       ]; }
     ];
