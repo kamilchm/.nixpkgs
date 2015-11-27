@@ -1,5 +1,15 @@
 { vimUtils, fetchgit }:
 {
+  pony-vim = vimUtils.buildVimPluginFrom2Nix {
+    name = "pony.vim-2015-10-27";
+    src = fetchgit {
+      url = "git://github.com/dleonard0/pony-vim-syntax";
+      rev = "2323b4b21a30a81b1dbe2a154d5636fbd4edb0db";
+      sha256 = "0323nl420nq9712mgqvfk6bc84bgn5x388v4s8ncqdnf1d5jjxz8";
+    };
+    dependencies = [];
+  };
+
   vim-javascript = vimUtils.buildVimPluginFrom2Nix {
     name = "vim-javascript-2015-06-18";
     src = fetchgit {

@@ -96,6 +96,8 @@
 
         nodejs
 
+        ponyc
+
         python27Packages.docker_compose
         vagrant
         rkt
