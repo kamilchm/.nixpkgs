@@ -40,6 +40,8 @@
 
         nix-repl
         nix-prefetch-scripts
+        telnet
+        wireshark-gtk
 
         termite
         cv
