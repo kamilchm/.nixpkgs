@@ -102,6 +102,7 @@
         elmPackages.elm-reactor
         elmPackages.elm-repl
 
+        python27
         ponyc
 
         python27Packages.docker_compose
