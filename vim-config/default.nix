@@ -26,6 +26,7 @@ in with pkgs; vim_configurable.customize {
       set number
       set laststatus=2
       colorscheme molokai
+      au BufRead,BufNewFile *.tag :set filetype=html
     '';
 
     vam.knownPlugins = vimPlugins // my_plugins;
