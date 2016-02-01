@@ -1,7 +1,7 @@
 { pkgs }:
 
 let
-my_plugins = import ./plugins.nix { inherit (pkgs) vimUtils fetchgit; };
+my_plugins = import ./plugins.nix { inherit (pkgs) vimUtils fetchgit fetchFromGitHub ; };
 
 in with pkgs; vim_configurable.customize {
   name = "vim";
@@ -43,9 +43,11 @@ in with pkgs; vim_configurable.customize {
         "vim-go"
         "vim-javascript"
         "vim-jsx"
-        "vim-scala"
         "elm-vim"
         "pony-vim"
+        "apiblueprint-vim"
+        "nim-vim"
+        "vim-elixir"
       ]; }
     ];
   };

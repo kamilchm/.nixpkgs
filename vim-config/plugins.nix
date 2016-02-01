@@ -1,4 +1,4 @@
-{ vimUtils, fetchgit }:
+{ vimUtils, fetchgit, fetchFromGitHub }:
 {
   elm-vim = vimUtils.buildVimPluginFrom2Nix {
     name = "elm.vim-2015-04-21";
@@ -40,12 +40,35 @@
     dependencies = [];
   };
 
-  vim-scala = vimUtils.buildVimPluginFrom2Nix {
-    name = "vim-scala-2015-03-09";
-    src = fetchgit {
-      url = "git://github.com/derekwyatt/vim-scala";
-      rev = "71ada50fc5e2b3c9fdbdb75835a218d2c245efec";
-      sha256 = "1f3l8fs2crfmjfj1wiyda9c48993b90b8l8m5vwj1hh397fzhrk1";
+  apiblueprint-vim = vimUtils.buildVimPluginFrom2Nix {
+    name = "apiblueprint.vim-2015-10-14";
+    src = fetchFromGitHub {
+      owner = "kylef";
+      repo = "apiblueprint.vim";
+      rev = "ea46ce2e08b1c38d62e51e1f3d0235c387976172";
+      sha256 = "1rv67lxwcsbk289hfizsmp0znbcaaj0vl969yvwaywmkk6zzch7c";
+    };
+    dependencies = [];
+  };
+
+  nim-vim = vimUtils.buildVimPluginFrom2Nix {
+    name = "nim.vim-2015-05-10";
+    src = fetchFromGitHub {
+      owner = "zah";
+      repo = "nim.vim";
+      rev = "597cca20eb31dc55cd285f108b37ff5ca6256a69";
+      sha256 = "0gykf8crmv5y1dqf43q04lsf5fs2xfp1fjcy17933j0w8agyazpx";
+    };
+    dependencies = [];
+  };
+
+  vim-elixir = vimUtils.buildVimPluginFrom2Nix {
+    name = "vim-elixir-2016-01-21";
+    src = fetchFromGitHub {
+      owner = "elixir-lang";
+      repo = "vim-elixir";
+      rev = "62711e50cdc655031ee05aa2ab3720a82a1aa14d";
+      sha256 = "1fxk02gbf6ycxmn9fydi4jv1jraysbq9qzx6dzwlywfsn816abi8";
     };
     dependencies = [];
   };
