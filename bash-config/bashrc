@@ -5,8 +5,6 @@ export EDITOR=vim
 source @fzf_src@/shell/key-bindings.bash
 export FZF_TMUX=0
 
-alias virtualenvwrapper-activate="source @virtualenvwrapper@/bin/virtualenvwrapper.sh"
-
-export GOPATH="/home/kamil/gows"
+export GOPATH="/home/kamil"
 export PATH="$GOPATH/bin:$PATH"
 export GO15VENDOREXPERIMENT=1
