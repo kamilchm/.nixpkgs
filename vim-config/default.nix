@@ -22,10 +22,15 @@ in with pkgs; vim_configurable.customize {
       set nocompatible
       set encoding=utf-8
       set incsearch
+      set hlsearch
       set history=700
       set number
       set laststatus=2
+
+      set termguicolors
       colorscheme molokai
+      let g:airline_theme = 'molokai'
+
       au BufRead,BufNewFile *.tag :set filetype=html
     '';
 
@@ -39,6 +44,7 @@ in with pkgs; vim_configurable.customize {
         "fugitive"
         "gitgutter"
         "vim-airline"
+        "vim-airline-themes"
         "sleuth"
         "vim-go"
         "vim-javascript"
