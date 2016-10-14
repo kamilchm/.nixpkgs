@@ -1,74 +1,53 @@
 { vimUtils, fetchgit, fetchFromGitHub }:
 {
   elm-vim = vimUtils.buildVimPluginFrom2Nix {
-    name = "elm.vim-2015-04-21";
+    name = "elm.vim-2016-10-02";
     src = fetchgit {
-      url = "git://github.com/lambdatoast/elm.vim";
-      rev = "916842745a73c73d25437ca17b88f32d8c944e1d";
-      sha256 = "1wkz5r8h6f4i0rhar787p4dvs6j02zxl9ki24pczgwql6j1dgkhp";
+      url = "git://github.com/ElmCast/elm-vim";
+      rev = "7760aed9f258cf6a7d2c56d547dd3ea45f832025";
+      sha256 = "1f1z2929aka2shkwb8z2ky26cvw2cgx7wdcikw9mljpgc1s7nl5d";
     };
     dependencies = [];
   };
 
-  pony-vim = vimUtils.buildVimPluginFrom2Nix {
-    name = "pony.vim-2015-10-27";
+  vim-pony = vimUtils.buildVimPluginFrom2Nix {
+    name = "vim-pony-2016-10-14";
     src = fetchgit {
-      url = "git://github.com/dleonard0/pony-vim-syntax";
-      rev = "2323b4b21a30a81b1dbe2a154d5636fbd4edb0db";
-      sha256 = "0323nl420nq9712mgqvfk6bc84bgn5x388v4s8ncqdnf1d5jjxz8";
+      url = "git://github.com/jakwings/vim-pony";
+      rev = "aac6b98b1fbbfec7e8a16297852a37a81d755092";
+      sha256 = "1jkkm8frwrrbhbfpi6d5pz69ghlwgm3360j9gdrnlbpxzvgzd9qp";
     };
     dependencies = [];
   };
 
   vim-javascript = vimUtils.buildVimPluginFrom2Nix {
-    name = "vim-javascript-2015-06-18";
+    name = "vim-javascript-2016-11-10";
     src = fetchgit {
       url = "git://github.com/pangloss/vim-javascript";
-      rev = "bab4f3944fb6ef0953991ddfb6c734219c95b83a";
-      sha256 = "13kbz62ywrjqchzmzdfgyj7jqv7gp6sbfrwcw63b9cahhc9d7wzc";
-    };
-    dependencies = [];
-  };
-
-  vim-jsx = vimUtils.buildVimPluginFrom2Nix {
-    name = "vim-jsx-2015-08-01";
-    src = fetchgit {
-      url = "git://github.com/mxw/vim-jsx";
-      rev = "82773e7be94c558c2de6bc1e84054c3915a70cb3";
-      sha256 = "05801x2gyv53vc8w96966l2jy47616r4xw1ac0y41wzi1bqrh0rk";
-    };
-    dependencies = [];
-  };
-
-  apiblueprint-vim = vimUtils.buildVimPluginFrom2Nix {
-    name = "apiblueprint.vim-2015-10-14";
-    src = fetchFromGitHub {
-      owner = "kylef";
-      repo = "apiblueprint.vim";
-      rev = "ea46ce2e08b1c38d62e51e1f3d0235c387976172";
-      sha256 = "1rv67lxwcsbk289hfizsmp0znbcaaj0vl969yvwaywmkk6zzch7c";
+      rev = "d736e95330e8aa343613ad8cddf1e7cc82de7ade";
+      sha256 = "136q0ask4dp99dp7fbyi1v2qrdfy6mnrh0a3hzsy9aw5g2f2rvbj";
     };
     dependencies = [];
   };
 
   nim-vim = vimUtils.buildVimPluginFrom2Nix {
-    name = "nim.vim-2015-05-10";
+    name = "nim.vim-2016-05-19";
     src = fetchFromGitHub {
       owner = "zah";
       repo = "nim.vim";
-      rev = "597cca20eb31dc55cd285f108b37ff5ca6256a69";
-      sha256 = "0gykf8crmv5y1dqf43q04lsf5fs2xfp1fjcy17933j0w8agyazpx";
+      rev = "dcf25798f4a3f75e9538f9915959061edbff97cf";
+      sha256 = "1jaiqkspfz2a4ny130dl0h6x9752flpcwwy0kscrqmlqf5fqiyvm";
     };
     dependencies = [];
   };
 
   vim-elixir = vimUtils.buildVimPluginFrom2Nix {
-    name = "vim-elixir-2016-01-21";
+    name = "vim-elixir-2016-10-12";
     src = fetchFromGitHub {
       owner = "elixir-lang";
       repo = "vim-elixir";
-      rev = "62711e50cdc655031ee05aa2ab3720a82a1aa14d";
-      sha256 = "1fxk02gbf6ycxmn9fydi4jv1jraysbq9qzx6dzwlywfsn816abi8";
+      rev = "0bd1892e8bb49e0884441879101383e176d85458";
+      sha256 = "11hkdskgailiapsnc3vh3xmagyy6ixgayjrx7r5aykmqflapb6b7";
     };
     dependencies = [];
   };

@@ -48,10 +48,8 @@ in with pkgs; vim_configurable.customize {
         "sleuth"
         "vim-go"
         "vim-javascript"
-        "vim-jsx"
         "elm-vim"
-        "pony-vim"
-        "apiblueprint-vim"
+        "vim-pony"
         "nim-vim"
         "vim-elixir"
       ]; }
