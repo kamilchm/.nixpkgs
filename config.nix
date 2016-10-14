@@ -25,9 +25,8 @@
     };
     bash-config = import ./bash-config {
       inherit (pkgs) stdenv fzf;
-      virtualenvwrapper = python27Packages.virtualenvwrapper;
     };
-    my_vim = import ./vim-config { inherit pkgs; };
+    my_vim = import ./vim-config { inherit pkgs ; };
 
     all = with pkgs; buildEnv {
       name = "all";
@@ -40,13 +39,21 @@
 
         nix-repl
         nix-prefetch-scripts
+        nixpkgs-lint
+        nixops
+        nox
+        patchelf
+        patchutils
+
         telnet
         wireshark-gtk
+        bind
 
         termite
         cv
         powerline-fonts
         clipit
+        ntfy
 
         pasystray
         pavucontrol
@@ -55,12 +62,13 @@
 
         arandr
 
+        gnumake
+
         tree
         fzf
         silver-searcher
         ranger
         my_vim
-        gawp
         atom
 
         git
@@ -74,6 +82,7 @@
 
         zip
         unzip
+        p7zip
 
         bc
 
@@ -81,46 +90,42 @@
         chromium
         httpie
 
-        hipchat
-
         cloc
-
-        python27Packages.virtualenvwrapper
+        jq
 
         go
-        goPackages.glide.bin
 
         oraclejdk8
         maven
         idea.idea-ultimate
-
-        nodejs
-
-        elmPackages.elm-compiler
-        elmPackages.elm-package
-        elmPackages.elm-make
-        elmPackages.elm-reactor
-        elmPackages.elm-repl
+        heroku
 
         python27
+        gcc
+
+        nim
+        nimble
         ponyc
 
+        python27Packages.glances
+
         python27Packages.docker_compose
+        qemu
+        gparted
+        proot
         vagrant
-        rkt
-
-        ansible
-
-        gftp
-
-        pencil
+        ansible2
 
         evince
+        libreoffice
         vlc
-        viewnior
+        ffmpeg
+        geeqie
+        pinta
+        graphicsmagick
+        deluge
 
-        spaceFM
-        androidsdk_4_4
+        hexchat
       ];
     };
   };
