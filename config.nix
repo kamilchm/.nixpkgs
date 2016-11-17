@@ -66,7 +66,7 @@
 
         tree
         fzf
-        silver-searcher
+        ripgrep
         ranger
         my_vim
         atom
