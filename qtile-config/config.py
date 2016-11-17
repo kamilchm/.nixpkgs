@@ -44,6 +44,9 @@ keys = [
         lazy.layout.rotate()
     ),
 
+    Key([mod], "n", lazy.layout.grow()),
+    Key([mod], "m", lazy.layout.shrink()),
+
     Key(
         [mod], "F11",
         lazy.window.toggle_fullscreen()
@@ -95,7 +98,7 @@ for i in groups:
 
 layouts = [
     layout.Max(),
-    layout.Stack(num_stacks=2)
+    layout.MonadTall(border_focus="#0000ff")
 ]
 
 widget_defaults = dict(
