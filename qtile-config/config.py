@@ -24,11 +24,11 @@ keys = [
 
     # Move windows up or down in current stack
     Key(
-        [mod, "control"], "k",
+        [mod, "shift"], "k",
         lazy.layout.shuffle_down()
     ),
     Key(
-        [mod, "control"], "j",
+        [mod, "shift"], "j",
         lazy.layout.shuffle_up()
     ),
 
@@ -38,10 +38,10 @@ keys = [
         lazy.layout.next()
     ),
 
-    # Swap panes of split stack
+    # Flip panes of stack
     Key(
         [mod, "shift"], "space",
-        lazy.layout.rotate()
+        lazy.layout.flip()
     ),
 
     Key([mod], "n", lazy.layout.grow()),
