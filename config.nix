@@ -97,7 +97,7 @@
 
         oraclejdk8
         maven
-        idea.idea-ultimate
+        #idea.idea-ultimate
         heroku
 
         python27
