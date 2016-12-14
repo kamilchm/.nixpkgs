@@ -12,12 +12,12 @@
   };
 
   vim-pony = vimUtils.buildVimPluginFrom2Nix {
-    name = "vim-pony-2016-10-14";
+    name = "vim-pony-2016-11-14";
     src = fetchFromGitHub {
       owner = "jakwings";
       repo = "vim-pony";
-      rev = "aac6b98b1fbbfec7e8a16297852a37a81d755092";
-      sha256 = "1jkkm8frwrrbhbfpi6d5pz69ghlwgm3360j9gdrnlbpxzvgzd9qp";
+      rev = "26ad120229dbb4470cd9de2b6f6a57a0fa1ac6c6";
+      sha256 = "1s19dpj7kglc05bb5yyq1w9aa2sg76h56cldjcvdckj5x3r7j5ni";
     };
     dependencies = [];
   };
