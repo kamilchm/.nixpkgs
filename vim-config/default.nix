@@ -1,7 +1,7 @@
 { pkgs }:
 
 let
-my_plugins = import ./plugins.nix { inherit (pkgs) vimUtils fetchFromGitHub ctags; };
+my_plugins = import ./plugins.nix { inherit (pkgs) vimUtils fetchFromGitHub; };
 
 in with pkgs; vim_configurable.customize {
   name = "vim";
@@ -54,7 +54,6 @@ in with pkgs; vim_configurable.customize {
         "vim-airline-themes"
         "sleuth"
         "neomake"
-        "vim-gutentags"
         "vim-go"
         "vim-javascript"
         "vim-vue"

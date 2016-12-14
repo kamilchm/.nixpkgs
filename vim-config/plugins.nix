@@ -1,21 +1,5 @@
-{ vimUtils, fetchFromGitHub, ctags }:
+{ vimUtils, fetchFromGitHub }:
 {
-  vim-gutentags = vimUtils.buildVimPluginFrom2Nix {
-    name = "vim-gutentags-2016-10-27";
-    src = fetchFromGitHub {
-      owner = "ludovicchabant";
-      repo = "vim-gutentags";
-      rev = "dad19b892c7160fd1b4cb28e46b0d1e4d7631ae2";
-      sha256 = "06vwfifbdm5rkn5fn0xm8hwl2nsirdmfrbvg6aq3ir26j0ci9wdz";
-    };
-    dependencies = [];
-    patchPhase = ''
-      substituteInPlace autoload/gutentags/ctags.vim \
-              --replace "get(g:, 'gutentags_ctags_executable', 'ctags')" \
-                        "get(g:, 'gutentags_ctags_executable', '${ctags}/bin/ctags')"
-    '';
-  };
-
   elm-vim = vimUtils.buildVimPluginFrom2Nix {
     name = "elm.vim-2016-10-02";
     src = fetchFromGitHub {
