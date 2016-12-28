@@ -92,6 +92,7 @@
 
         cloc
         jq
+        jid
 
         go
 
