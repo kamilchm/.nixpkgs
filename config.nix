@@ -105,7 +105,6 @@
         gcc
 
         nim
-        nimble
         ponyc
 
         python27Packages.glances
