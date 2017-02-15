@@ -112,20 +112,6 @@ screens = []
 
 def setup_screens(qtile):
     global screens
-    if len(qtile.conn.pseudoscreens) > 1:
-        screens.append(
-            Screen(
-                bottom=bar.Bar(
-                    [
-                        widget.GroupBox(),
-                        widget.WindowName(),
-                        widget.Clock(format='%H:%M'),
-                    ],
-                    30,
-                ),
-            ),
-        )
-
     screens.append(
         Screen(
             bottom=bar.Bar(
@@ -149,6 +135,20 @@ def setup_screens(qtile):
             ),
         ),
     )
+    if len(qtile.conn.pseudoscreens) > 1:
+        screens.append(
+            Screen(
+                bottom=bar.Bar(
+                    [
+                        widget.GroupBox(),
+                        widget.WindowName(),
+                        widget.Clock(format='%H:%M'),
+                    ],
+                    30,
+                ),
+            ),
+        )
+
 
 # Drag floating layouts.
 mouse = [
