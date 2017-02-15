@@ -44,6 +44,8 @@ in with pkgs; vim_configurable.customize {
 
       au FileType pony setl sw=2 sts=2 et
       au BufRead,BufNewFile *.tag :set filetype=html
+
+      let g:elm_format_autosave = 1
     '';
 
     vam.knownPlugins = vimPlugins // my_plugins;
