@@ -1,6 +1,6 @@
 #!bin/bash
 
-PS1='\[\033[35m\]\t\[\033[m\]:\[\033[33;1m\]\w\[\033[00m\]$(git-radar --bash) \$ '
+PS1='\[\033[35m\]\t\[\033[m\]$(git-radar --bash) \$ '
 
 eval "$(dircolors -b ~/.dircolors)"
 alias ls='ls --color=auto'
