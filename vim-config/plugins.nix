@@ -1,12 +1,12 @@
 { vimUtils, fetchFromGitHub }:
 {
   elm-vim = vimUtils.buildVimPluginFrom2Nix {
-    name = "elm.vim-2016-10-02";
+    name = "elm.vim-2017-01-13";
     src = fetchFromGitHub {
       owner = "ElmCast";
       repo = "elm-vim";
-      rev = "7760aed9f258cf6a7d2c56d547dd3ea45f832025";
-      sha256 = "1f1z2929aka2shkwb8z2ky26cvw2cgx7wdcikw9mljpgc1s7nl5d";
+      rev = "0c1fbfdf12f165681b8134ed2cae2c148105ac40";
+      sha256 = "0l871hzg55ysns5h6v7xq63lwf4135m3xggm2s4q2pmzizivk0x2";
     };
     dependencies = [];
   };
