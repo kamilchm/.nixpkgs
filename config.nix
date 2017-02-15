@@ -48,6 +48,7 @@
         telnet
         wireshark-gtk
         bind
+        netcat-openbsd
 
         termite
         cv
