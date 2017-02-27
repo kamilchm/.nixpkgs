@@ -76,4 +76,15 @@
     };
     dependencies = [];
   };
+
+  hexmode = vimUtils.buildVimPluginFrom2Nix {
+    name = "hexmode-2016-11-04";
+    src = fetchFromGitHub {
+      owner = "fidian";
+      repo = "hexmode";
+      rev = "27932330b9a36c91a6039267bc32a18060e82d57";
+      sha256 = "00xdv6d3rmalv342ajqd7cgbci97frd7pmsrgfnaqcfimycka3la";
+    };
+    dependencies = [];
+  };
 }

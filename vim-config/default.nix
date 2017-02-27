@@ -69,6 +69,7 @@ in with pkgs; vim_configurable.customize {
         "nim-vim"
         "vim-elixir"
         "alchemist-vim"
+        "hexmode"
       ]; }
     ];
   };
