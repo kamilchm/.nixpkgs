@@ -99,6 +99,8 @@
 
         elixir
 
+        nodejs-7_x
+
         oraclejdk8
         maven
         #idea.idea-ultimate
