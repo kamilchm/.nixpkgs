@@ -97,6 +97,8 @@
 
         go
 
+        elixir
+
         oraclejdk8
         maven
         #idea.idea-ultimate
