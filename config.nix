@@ -115,7 +115,6 @@
         python27Packages.glances
 
         python27Packages.docker_compose
-        qemu
         gparted
         proot
         vagrant
