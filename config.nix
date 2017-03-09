@@ -90,6 +90,7 @@
         firefoxWrapper
         chromium
         httpie
+        mitmproxy
 
         cloc
         jq
