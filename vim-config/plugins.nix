@@ -55,17 +55,6 @@
     dependencies = [];
   };
 
-  vim-elixir = vimUtils.buildVimPluginFrom2Nix {
-    name = "vim-elixir-2016-10-12";
-    src = fetchFromGitHub {
-      owner = "elixir-lang";
-      repo = "vim-elixir";
-      rev = "0bd1892e8bb49e0884441879101383e176d85458";
-      sha256 = "11hkdskgailiapsnc3vh3xmagyy6ixgayjrx7r5aykmqflapb6b7";
-    };
-    dependencies = [];
-  };
-
   alchemist-vim = vimUtils.buildVimPluginFrom2Nix {
     name = "alchemist-vim-2016-11-07";
     src = fetchFromGitHub {
