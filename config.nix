@@ -129,6 +129,7 @@
         geeqie
         pinta
         graphicsmagick
+        yed
         deluge
 
         hexchat
