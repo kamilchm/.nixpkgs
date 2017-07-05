@@ -71,6 +71,7 @@
         ranger
         my_vim
         atom
+        typora
 
         git
         git-radar
