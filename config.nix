@@ -130,6 +130,8 @@
         pinta
         graphicsmagick
         yed
+        zoom-us
+
         deluge
 
         hexchat
