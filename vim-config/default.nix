@@ -38,6 +38,8 @@ in with pkgs; vim_configurable.customize {
       let g:ctrlp_user_command = 'rg --files %s'
       let g:ctrlp_use_caching = 0
 
+      let g:go_fmt_command = "goimports"
+      let g:go_metalinter_autosave = 1
       autocmd FileType go nmap <leader>b  <Plug>(go-build)
       autocmd FileType go nmap <leader>r  <Plug>(go-run)
       autocmd FileType go nmap <leader>t  <Plug>(go-test)
