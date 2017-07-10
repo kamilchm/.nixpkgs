@@ -38,8 +38,15 @@ in with pkgs; vim_configurable.customize {
       let g:ctrlp_user_command = 'rg --files %s'
       let g:ctrlp_use_caching = 0
 
+      " Error and warning signs.
+      let g:ale_sign_error = '⤫'
+      let g:ale_sign_warning = '⚠'
+
+      " Enable integration with airline.
+      let g:airline#extensions#ale#enabled = 1
+
       let g:go_fmt_command = "goimports"
-      let g:go_metalinter_autosave = 1
+
       autocmd FileType go nmap <leader>b  <Plug>(go-build)
       autocmd FileType go nmap <leader>r  <Plug>(go-run)
       autocmd FileType go nmap <leader>t  <Plug>(go-test)
@@ -54,6 +61,7 @@ in with pkgs; vim_configurable.customize {
     vam.knownPlugins = vimPlugins // my_plugins;
     vam.pluginDictionaries = [
       { names = [
+        "ale"
         "ctrlp"
         "vim-addon-nix"
         "youcompleteme"
@@ -63,7 +71,6 @@ in with pkgs; vim_configurable.customize {
         "vim-airline"
         "vim-airline-themes"
         "sleuth"
-        "neomake"
         "vim-go"
         "vim-javascript"
         "vim-vue"
