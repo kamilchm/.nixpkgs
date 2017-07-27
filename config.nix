@@ -66,6 +66,7 @@
         gnumake
 
         tree
+        inotify-tools
         fzf
         ripgrep
         ranger
