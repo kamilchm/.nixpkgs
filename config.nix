@@ -4,7 +4,6 @@
   firefox = {
     enableGoogleTalkPlugin = true;
     enableAdobeFlash = true;
-    enableBluejeans = true;
   };
 
   chromium = {
