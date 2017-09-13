@@ -101,7 +101,7 @@
 
         elixir
 
-        nodejs-7_x
+        nodejs-8_x
 
         oraclejdk8
         maven
