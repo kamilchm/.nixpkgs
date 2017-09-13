@@ -54,7 +54,7 @@ in with pkgs; vim_configurable.customize {
       let g:go_highlight_structs = 1
       let g:go_highlight_types = 1
 
-      let g:go_fmt_command = "goimports"
+      " let g:go_fmt_command = "goimports"
 
       autocmd FileType go nmap <leader>b  <Plug>(go-build)
       autocmd FileType go nmap <leader>r  <Plug>(go-run)
