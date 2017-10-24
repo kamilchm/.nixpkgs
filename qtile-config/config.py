@@ -126,6 +126,7 @@ def setup_screens(qtile):
                     widget.MemoryGraph(graph_color='31F500',
                                        fill_color='9DFF85.3'),
                     widget.NetGraph(),
+                    widget.DF(warn_space=10, update_interval=300),
                     widget.Volume(),
                     widget.Systray(),
                     widget.Notify(),
