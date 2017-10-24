@@ -7,3 +7,5 @@ export FZF_TMUX=0
 
 export GOPATH="/home/kamil"
 export PATH="$GOPATH/bin:$PATH"
+
+export JAVA_HOME="@jdk@"

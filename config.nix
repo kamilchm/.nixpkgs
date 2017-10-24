@@ -23,7 +23,7 @@
       inherit (pkgs) stdenv;
     };
     bash-config = import ./bash-config {
-      inherit (pkgs) stdenv fzf;
+      inherit (pkgs) stdenv fzf ; jdk = oraclejdk;
     };
     my_vim = import ./vim-config { inherit pkgs ; };
 
@@ -103,7 +103,7 @@
 
         nodejs-8_x
 
-        oraclejdk8
+        oraclejdk
         maven
         #idea.idea-ultimate
         #heroku
