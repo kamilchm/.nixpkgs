@@ -68,6 +68,7 @@
         inotify-tools
         fzf
         ripgrep
+        fd
         ranger
         my_vim
         atom
