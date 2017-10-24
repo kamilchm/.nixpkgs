@@ -7,4 +7,3 @@ export FZF_TMUX=0
 
 export GOPATH="/home/kamil"
 export PATH="$GOPATH/bin:$PATH"
-export GO15VENDOREXPERIMENT=1
