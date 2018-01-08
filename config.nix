@@ -26,6 +26,9 @@
       inherit (pkgs) stdenv fzf ; jdk = oraclejdk;
     };
     my_vim = import ./vim-config { inherit pkgs ; };
+    elixir-config = import ./elixir-config {
+      inherit (pkgs) stdenv;
+    };
 
     all = with pkgs; buildEnv {
       name = "all";
@@ -35,6 +38,7 @@
         termite-config
         qtile-config
         bash-config
+        elixir-config
 
         nix-repl
         nix-prefetch-scripts
