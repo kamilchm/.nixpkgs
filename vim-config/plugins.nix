@@ -12,56 +12,56 @@
   };
 
   vim-pony = vimUtils.buildVimPluginFrom2Nix {
-    name = "vim-pony-2016-11-14";
+    name = "vim-pony-2017-09-30";
     src = fetchFromGitHub {
       owner = "jakwings";
       repo = "vim-pony";
-      rev = "26ad120229dbb4470cd9de2b6f6a57a0fa1ac6c6";
-      sha256 = "1s19dpj7kglc05bb5yyq1w9aa2sg76h56cldjcvdckj5x3r7j5ni";
+      rev = "e90be86915d88f502b28b012eeae178d93784644";
+      sha256 = "0dk5g9yyn87jj23ajv6w3jx7gbx9vg3a22fkjj6lkiyhhlyxbrg4";
     };
     dependencies = [];
   };
 
   vim-javascript = vimUtils.buildVimPluginFrom2Nix {
-    name = "vim-javascript-2016-11-10";
+    name = "vim-javascript-2018-02-05";
     src = fetchFromGitHub {
       owner = "pangloss";
       repo = "vim-javascript";
-      rev = "d736e95330e8aa343613ad8cddf1e7cc82de7ade";
-      sha256 = "136q0ask4dp99dp7fbyi1v2qrdfy6mnrh0a3hzsy9aw5g2f2rvbj";
+      rev = "f71693e2784594a378930e261955a85ea37dd03d";
+      sha256 = "1qyaf5cwq7icdxhvn3xvzklqaiwdbkmgvwfx6ww9gfygal481v2s";
     };
     dependencies = [];
   };
 
   vim-vue = vimUtils.buildVimPluginFrom2Nix {
-    name = "vim-vue-2016-10-22";
+    name = "vim-vue-2017-12-12";
     src = fetchFromGitHub {
       owner = "posva";
       repo = "vim-vue";
-      rev = "e13f9abf5ff71954226f71f60175f78efd7bfadd";
-      sha256 = "07zwhzna5g22scjy2mq4clsgpkfavpgxiqvnfbfydgc52h73l27r";
+      rev = "6518e738863f0acd190c7564a109be021cae1b56";
+      sha256 = "1rdm94632amrcynwbx7iny8wssk9b9rk8izrb7q1y7vf3ma5jkrs";
     };
     dependencies = [];
   };
 
   nim-vim = vimUtils.buildVimPluginFrom2Nix {
-    name = "nim.vim-2016-05-19";
+    name = "nim.vim-2018-02-06";
     src = fetchFromGitHub {
       owner = "zah";
       repo = "nim.vim";
-      rev = "dcf25798f4a3f75e9538f9915959061edbff97cf";
-      sha256 = "1jaiqkspfz2a4ny130dl0h6x9752flpcwwy0kscrqmlqf5fqiyvm";
+      rev = "f1d99dd8bdaa0b5010a83ebd826e9e2315ed36d7";
+      sha256 = "1gymcblyihr6szn2bdpb3i90zbgv8nl7gifx7l6qyda460mwpxb9";
     };
     dependencies = [];
   };
 
   alchemist-vim = vimUtils.buildVimPluginFrom2Nix {
-    name = "alchemist-vim-2016-11-07";
+    name = "alchemist-vim-2018-02-03";
     src = fetchFromGitHub {
       owner = "slashmili";
       repo = "alchemist.vim";
-      rev = "718d16c38f473254589f4e71b6b0680b55d88fcf";
-      sha256 = "0v2gb234rbzz31x1xgaq2x03hzzsijiaq3c96z3yhl82pvrfsfzy";
+      rev = "1bc6ac4405f0b7bbf5dd963313f103f1416f27cb";
+      sha256 = "0ff83xknlkb2rdhvpp75nclilb4mlmkr86lp9jwb52dc0a6l2g8i";
     };
     dependencies = [];
   };
