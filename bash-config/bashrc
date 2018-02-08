@@ -8,6 +8,6 @@ export FZF_TMUX=0
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 export GOPATH="/home/kamil"
-export PATH="$GOPATH/bin:$PATH"
+export PATH="$GOPATH/bin:/home/kamil/.nix-profile/bin:$PATH"
 
 export JAVA_HOME="@jdk@"
