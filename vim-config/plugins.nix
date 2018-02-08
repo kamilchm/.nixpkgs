@@ -1,16 +1,5 @@
 { vimUtils, fetchFromGitHub }:
 {
-  ale = vimUtils.buildVimPluginFrom2Nix {
-    name = "ale-2017-07-10";
-    src = fetchFromGitHub {
-      owner = "w0rp";
-      repo = "ale";
-      rev = "b44f6053d1faffa47191009f84dc36d14ebc3992";
-      sha256 = "1vdk8s5inry8xkwa10cyjfdjqyxby76n2sm7gkz0rfqagh9v10g8";
-    };
-    dependencies = [];
-  };
-
   elm-vim = vimUtils.buildVimPluginFrom2Nix {
     name = "elm.vim-2017-01-13";
     src = fetchFromGitHub {
