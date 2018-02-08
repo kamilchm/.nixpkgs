@@ -133,6 +133,7 @@
         ffmpeg
         geeqie
         pinta
+        inkscape
         graphicsmagick
         yed
         zoom-us
