@@ -76,4 +76,26 @@
     };
     dependencies = [];
   };
+
+  vim-reason-plus = vimUtils.buildVimPluginFrom2Nix {
+    name = "vim-reason-plus-2018-02-24";
+    src = fetchFromGitHub {
+      owner = "reasonml-editor";
+      repo = "vim-reason-plus";
+      rev = "91138fa3ff985a89b0c863d1ff389b40ff6c28c9";
+      sha256 = "169nmcwwskr9m1b7f0p8d0c8l2k9yhblb868w2n6vv3wjjamg7sd";
+    };
+    dependencies = [];
+  };
+
+  vim-rooter = vimUtils.buildVimPluginFrom2Nix {
+    name = "vim-rooter-2017-11-20";
+    src = fetchFromGitHub {
+      owner = "airblade";
+      repo = "vim-rooter";
+      rev = "3509dfb80d0076270a04049548738daeedf6dfb9";
+      sha256 = "03j26fw0dcvcc81fn8hx1prdwlgnd3g340pbxrzgbgxxq5kr0bwl";
+    };
+    dependencies = [];
+  };
 }

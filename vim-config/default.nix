@@ -3,16 +3,16 @@
 let
 my_plugins = import ./plugins.nix { inherit (pkgs) vimUtils fetchFromGitHub; };
 
-in with pkgs; vim_configurable.customize {
-  name = "vim";
-  vimrcConfig = {
+in with pkgs; neovim.override {
+  vimAlias = true;
+  configure = {
     customRC = ''
       syntax on
       filetype on
       set expandtab
-      set tabstop=4
+      set tabstop=2
       set softtabstop=0
-      set shiftwidth=4
+      set shiftwidth=2
       set smarttab
       set autoindent
       set smartindent
@@ -26,17 +26,21 @@ in with pkgs; vim_configurable.customize {
       set history=700
       set number
       set laststatus=2
+      set signcolumn=yes
 
       set termguicolors
+      set background=dark
       colorscheme molokai
       let g:airline_theme = 'molokai'
 
-      set grepprg=rg\ --vimgrep
-      " bind K to grep word under cursor
+      set grepprg=rg\ --
+      " bind K to grep word under
       nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
       let g:ctrlp_user_command = 'rg --files %s'
       let g:ctrlp_use_caching = 0
+
+      let g:deoplete#enable_at_startup = 1
 
       " Error and warning signs.
       let g:ale_sign_error = '⤫'
@@ -61,10 +65,28 @@ in with pkgs; vim_configurable.customize {
       autocmd FileType go nmap <leader>t  <Plug>(go-test)
       autocmd FileType go nmap <Leader>c  <Plug>(go-coverage-toggle)
 
-      au FileType pony setl sw=2 sts=2 et
-      au BufRead,BufNewFile *.tag :set filetype=html
+      let g:LanguageClient_serverCommands = {
+          \ 'python': ['pyls'],
+          \ 'reason': ['ocaml-language-server', '--stdio'],
+          \ }
+      " Automatically start language servers.
+      let g:LanguageClient_autoStart = 1
+      let g:LanguageClient_signColumnAlwaysOn = 1
+      " let g:LanguageClient_loggingLevel = 'DEBUG'
 
-      let g:elm_format_autosave = 1
+      au BufEnter *.ml setf ocaml
+      au BufEnter *.mli setf ocaml
+      au BufEnter *.atd setf ocaml
+      au FileType ocaml set shiftwidth=2 tabstop=2
+
+      let g:opamshare = substitute(system('${pkgs.opam}/bin/opam config var share'),'\n$',''','''''')
+      execute "set rtp+=" . g:opamshare . "/merlin/vim"
+
+      nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+      nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+      nnoremap <silent> gd :call LanguageClient_textDocument_definition()<cr>
+      nnoremap <silent> gf :call LanguageClient_textDocument_formatting()<cr>
+      nnoremap <silent> <cr> :call LanguageClient_textDocument_hover()<cr>
     '';
 
     vam.knownPlugins = vimPlugins // my_plugins;
@@ -72,8 +94,12 @@ in with pkgs; vim_configurable.customize {
       { names = [
         "ale"
         "ctrlp"
+        "vim-rooter"
         "vim-addon-nix"
-        "youcompleteme"
+        "fzfWrapper"
+        "nvim-completion-manager"
+        "deoplete-nvim"
+        "LanguageClient-neovim"
         "molokai"
         "fugitive"
         "gitgutter"
@@ -88,6 +114,7 @@ in with pkgs; vim_configurable.customize {
         "nim-vim"
         "vim-elixir"
         "alchemist-vim"
+        "vim-reason-plus"
         "hexmode"
       ]; }
     ];
