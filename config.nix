@@ -102,7 +102,6 @@
 
         tokei
         jq
-        jid
 
         go
 
