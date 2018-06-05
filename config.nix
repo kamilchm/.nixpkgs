@@ -114,15 +114,15 @@
         #idea.idea-ultimate
         #heroku
 
-        python27
+        python36
         gcc
 
         nim
         ponyc
 
-        python27Packages.glances
+        python36Packages.glances
 
-        python27Packages.docker_compose
+        python36Packages.docker_compose
         gparted
         proot
         vagrant
