@@ -57,10 +57,12 @@
         cv
         powerline-fonts
         clipit
+        xsel
         ntfy
 
         pasystray
         pavucontrol
+        alsaUtils
 
         blueman
 
