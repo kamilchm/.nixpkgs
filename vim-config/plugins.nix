@@ -44,17 +44,6 @@
     dependencies = [];
   };
 
-  nim-vim = vimUtils.buildVimPluginFrom2Nix {
-    name = "nim.vim-2018-02-06";
-    src = fetchFromGitHub {
-      owner = "zah";
-      repo = "nim.vim";
-      rev = "f1d99dd8bdaa0b5010a83ebd826e9e2315ed36d7";
-      sha256 = "1gymcblyihr6szn2bdpb3i90zbgv8nl7gifx7l6qyda460mwpxb9";
-    };
-    dependencies = [];
-  };
-
   alchemist-vim = vimUtils.buildVimPluginFrom2Nix {
     name = "alchemist-vim-2018-02-03";
     src = fetchFromGitHub {
