@@ -98,7 +98,7 @@
         httpie
         mitmproxy
 
-        cloc
+        tokei
         jq
         jid
 
