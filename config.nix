@@ -105,7 +105,8 @@
 
         go
 
-        beam.packages.erlangR20.elixir
+        erlangR21
+        beam.packages.erlangR21.elixir
 
         nodejs-8_x
 
