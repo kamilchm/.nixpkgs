@@ -68,6 +68,8 @@ in with pkgs; neovim.override {
       let g:LanguageClient_serverCommands = {
           \ 'python': ['pyls'],
           \ 'reason': ['ocaml-language-server', '--stdio'],
+          \ 'javascript': ['javascript-typescript-stdio'],
+          \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
           \ }
       " Automatically start language servers.
       let g:LanguageClient_autoStart = 1
@@ -108,6 +110,8 @@ in with pkgs; neovim.override {
         "sleuth"
         "vim-go"
         "vim-javascript"
+        "typescript-vim"
+        "vim-graphql"
         "vim-vue"
         "elm-vim"
         "vim-pony"

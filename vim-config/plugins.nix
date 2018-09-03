@@ -22,13 +22,13 @@
     dependencies = [];
   };
 
-  vim-javascript = vimUtils.buildVimPluginFrom2Nix {
-    name = "vim-javascript-2018-02-05";
+  vim-graphql = vimUtils.buildVimPluginFrom2Nix {
+    name = "vim-graphql-2018-06-26";
     src = fetchFromGitHub {
-      owner = "pangloss";
-      repo = "vim-javascript";
-      rev = "f71693e2784594a378930e261955a85ea37dd03d";
-      sha256 = "1qyaf5cwq7icdxhvn3xvzklqaiwdbkmgvwfx6ww9gfygal481v2s";
+      owner = "jparise";
+      repo = "vim-graphql";
+      rev = "4a46f86f0dbd6ff3bd22db8f48a692075d64f6c2";
+      sha256 = "08dxdicslxhmy6qqbwgriry8m8g22qpjbd0v2bz2c2lcig68qwfy";
     };
     dependencies = [];
   };
