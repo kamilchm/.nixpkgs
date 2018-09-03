@@ -108,7 +108,7 @@
         erlangR21
         beam.packages.erlangR21.elixir
 
-        nodejs-8_x
+        nodejs-10_x
 
         oraclejdk
         maven
