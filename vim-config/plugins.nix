@@ -87,4 +87,15 @@
     };
     dependencies = [];
   };
+
+  vim-pug = vimUtils.buildVimPluginFrom2Nix {
+    name = "vim-pug-2017-04-07";
+    src = fetchFromGitHub {
+      owner = "digitaltoad";
+      repo = "vim-pug";
+      rev = "ddc5592f8c36bf4bd915c16b38b8c76292c2b975";
+      sha256 = "069pha18g1nlzg44k742vjxm4zwjd1qjzhfllkr35qaiflvjm84y";
+    };
+    dependencies = [];
+  };
 }
