@@ -47,6 +47,7 @@
         nox
         patchelf
         patchutils
+        appimage-run
 
         telnet
         wireshark-gtk
