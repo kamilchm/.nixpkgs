@@ -11,7 +11,10 @@
     enablePepperPDF = true;
   };
 
-  packageOverrides = pkgs_: with pkgs_; {
+
+  packageOverrides = pkgs_: with pkgs_;
+    let jdk = openjdk10; in {
+
     gtk-config = import ./gtk-config {
       inherit (pkgs) stdenv albatross;
     };
@@ -23,7 +26,7 @@
       inherit (pkgs) stdenv;
     };
     bash-config = import ./bash-config {
-      inherit (pkgs) stdenv fzf; jdk = oraclejdk10;
+      inherit (pkgs) stdenv fzf; inherit jdk;
     };
     my_vim = import ./vim-config { inherit pkgs ; };
     elixir-config = import ./elixir-config {
@@ -111,7 +114,7 @@
 
         nodejs-10_x
 
-        oraclejdk10
+        jdk
         maven
         #idea.idea-ultimate
         #heroku
