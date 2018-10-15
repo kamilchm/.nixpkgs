@@ -49,6 +49,10 @@ in with pkgs; neovim.override {
       " Enable integration with airline.
       let g:airline#extensions#ale#enabled = 1
 
+      let g:ale_linters = {
+      \   'javascript': ['standard'],
+      \}
+      let g:ale_fixers = {'javascript': ['standard']}
       let g:go_highlight_build_constraints = 1
       let g:go_highlight_extra_types = 1
       let g:go_highlight_fields = 1
