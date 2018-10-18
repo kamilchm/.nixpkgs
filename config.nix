@@ -113,6 +113,7 @@
         beam.packages.erlangR21.elixir
 
         nodejs-10_x
+        flow
 
         jdk
         maven

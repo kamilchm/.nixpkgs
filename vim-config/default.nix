@@ -123,6 +123,7 @@ in with pkgs; neovim.override {
         "vim-elixir"
         "alchemist-vim"
         "vim-reason-plus"
+        "vim-flow"
         "vim-pug"
         "hexmode"
       ]; }
