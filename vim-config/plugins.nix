@@ -67,12 +67,12 @@
   };
 
   vim-reason-plus = vimUtils.buildVimPluginFrom2Nix {
-    name = "vim-reason-plus-2018-02-24";
+    name = "vim-reason-plus-2018-08-22";
     src = fetchFromGitHub {
       owner = "reasonml-editor";
       repo = "vim-reason-plus";
-      rev = "91138fa3ff985a89b0c863d1ff389b40ff6c28c9";
-      sha256 = "169nmcwwskr9m1b7f0p8d0c8l2k9yhblb868w2n6vv3wjjamg7sd";
+      rev = "e4460795d80329ec20e9ddc7b535f1cd2731acc8";
+      sha256 = "07351b58afid3jwxmw9xmplpkxjy4hpbkfkw0lqapndn4a8xjnm0";
     };
     dependencies = [];
   };
