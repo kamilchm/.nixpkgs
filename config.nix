@@ -13,7 +13,7 @@
 
 
   packageOverrides = pkgs_: with pkgs_;
-    let jdk = openjdk10; in {
+    let jdk = openjdk11; in {
 
     gtk-config = import ./gtk-config {
       inherit (pkgs) stdenv albatross;
