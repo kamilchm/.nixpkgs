@@ -50,9 +50,10 @@ in with pkgs; neovim.override {
       let g:airline#extensions#ale#enabled = 1
 
       let g:ale_linters = {
-      \   'javascript': ['standard'],
+      \   'javascript': ['standard', 'flow'],
       \}
       let g:ale_fixers = {'javascript': ['standard']}
+
       let g:go_highlight_build_constraints = 1
       let g:go_highlight_extra_types = 1
       let g:go_highlight_fields = 1
@@ -93,6 +94,9 @@ in with pkgs; neovim.override {
       nnoremap <silent> gd :call LanguageClient_textDocument_definition()<cr>
       nnoremap <silent> gf :call LanguageClient_textDocument_formatting()<cr>
       nnoremap <silent> <cr> :call LanguageClient_textDocument_hover()<cr>
+
+      let g:flow#autoclose = 1
+      let g:flow#showquickfix = 0
     '';
 
     vam.knownPlugins = vimPlugins // my_plugins;
