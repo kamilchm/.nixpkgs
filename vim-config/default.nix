@@ -95,6 +95,8 @@ in with pkgs; neovim.override {
       nnoremap <silent> gf :call LanguageClient_textDocument_formatting()<cr>
       nnoremap <silent> <cr> :call LanguageClient_textDocument_hover()<cr>
 
+      nnoremap <silent> T :TestNearest<CR>
+
       let g:flow#autoclose = 1
       let g:flow#showquickfix = 0
     '';
@@ -110,6 +112,7 @@ in with pkgs; neovim.override {
         "nvim-completion-manager"
         "deoplete-nvim"
         "LanguageClient-neovim"
+        "vim-test"
         "molokai"
         "fugitive"
         "gitgutter"
