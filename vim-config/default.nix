@@ -34,8 +34,7 @@ in with pkgs; neovim.override {
       let g:airline_theme = 'molokai'
 
       set grepprg=rg\ --
-      " bind K to grep word under
-      nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+      nnoremap <silent> F :Rg<CR>
 
       let g:ctrlp_user_command = 'rg --files %s'
       let g:ctrlp_use_caching = 0
@@ -110,6 +109,7 @@ in with pkgs; neovim.override {
         "vim-rooter"
         "vim-addon-nix"
         "fzfWrapper"
+        "vim-ripgrep"
         "nvim-completion-manager"
         "deoplete-nvim"
         "LanguageClient-neovim"
