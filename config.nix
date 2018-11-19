@@ -128,7 +128,7 @@
 
         python36Packages.glances
 
-        python36Packages.docker_compose
+        docker-compose
         gparted
         proot
         vagrant
