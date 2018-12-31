@@ -76,9 +76,9 @@ keys = [
     Key([], 'Print', lazy.spawn("xfce4-screenshooter")),
 
     Key([], "XF86AudioRaiseVolume",
-        lazy.spawn("amixer -c 1 -q set Master 2dB+")),
+        lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +2%")),
     Key([], "XF86AudioLowerVolume",
-        lazy.spawn("amixer -c 1 -q set Master 2dB-")),
+        lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -2%")),
     Key([], "XF86AudioMute",
         lazy.spawn("amixer -D pulse set Master 1+ toggle")),
 ]
