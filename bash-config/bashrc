@@ -11,3 +11,12 @@ export GOPATH="/home/kamil"
 export PATH="$GOPATH/bin:/home/kamil/.nix-profile/bin:$PATH"
 
 export JAVA_HOME="@jdk@"
+
+nxs() {
+    sfile="@shells@/$1.nix"
+    if [[ ! -f $sfile ]]; then
+        echo "No shell named '$1' defined"
+        return
+    fi
+    nix-shell $sfile
+}

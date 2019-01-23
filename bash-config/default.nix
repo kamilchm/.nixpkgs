@@ -13,5 +13,9 @@ stdenv.mkDerivation rec {
       --subst-var-by fzf_src ${fzf.src}
     substituteInPlace $out/userHome/.bashrc \
       --subst-var-by jdk ${jdk}
+
+    cp -R $src/shells $out/shells
+    substituteInPlace $out/userHome/.bashrc \
+      --subst-var-by shells $out/shells
   '';
 }
