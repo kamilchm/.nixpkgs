@@ -43,7 +43,6 @@
         bash-config
         elixir-config
 
-        nix-repl
         nix-prefetch-scripts
         nixpkgs-lint
         nixops
@@ -142,7 +141,6 @@
         pinta
         inkscape
         graphicsmagick
-        yed
         zoom-us
 
         deluge
