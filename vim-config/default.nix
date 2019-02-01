@@ -69,10 +69,12 @@ in with pkgs; neovim.override {
       autocmd FileType go nmap <leader>t  <Plug>(go-test)
       autocmd FileType go nmap <Leader>c  <Plug>(go-coverage-toggle)
 
+      let g:LanguageClient_rootMarkers = ['lerna.json', '.git']
+
       let g:LanguageClient_serverCommands = {
           \ 'python': ['pyls'],
           \ 'reason': ['ocaml-language-server', '--stdio'],
-          \ 'typescript': ['typescript-language-server', '--stdio'],
+          \ 'typescript': ['javascript-typescript-stdio'],
           \ 'javascript': ['javascript-typescript-stdio'],
           \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
           \ }

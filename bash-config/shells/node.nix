@@ -7,8 +7,8 @@ mkShell {
   shellHook = ''
     export LANG="en_US.UTF-8"
     export PATH="`pwd`/node_modules/.bin:$PATH"
-    if [ ! -f node_modules/.bin/typescript-language-server ]; then
-      npm i -D typescript-language-server --no-save
+    if [ ! -f node_modules/.bin/javascript-typescript-stdio ]; then
+      npm i -D javascript-typescript-langserver --no-save
     fi
   '';
 }
