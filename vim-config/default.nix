@@ -110,7 +110,6 @@ in with pkgs; neovim.override {
         "vim-addon-nix"
         "fzfWrapper"
         "vim-ripgrep"
-        "nvim-completion-manager"
         "deoplete-nvim"
         "LanguageClient-neovim"
         "vim-test"
