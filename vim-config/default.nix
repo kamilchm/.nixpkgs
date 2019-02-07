@@ -99,13 +99,13 @@ in with pkgs; neovim.override {
       let g:flow#showquickfix = 0
     '';
 
-    vam.knownPlugins = vimPlugins // my_plugins;
+    vam.knownPlugins = vimPlugins // my_plugins // { "tlib" = vimPlugins.tlib_vim; };
     vam.pluginDictionaries = [
       { names = [
         "ale"
         "ctrlp"
         "vim-rooter"
-        "vim-addon-nix"
+        "vim-addon-nix" "tlib"
         "fzfWrapper"
         "vim-ripgrep"
         "deoplete-nvim"
