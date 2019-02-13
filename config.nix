@@ -80,7 +80,7 @@
         fd
         ranger
         my_vim
-        atom
+        vscode
         typora
 
         git
