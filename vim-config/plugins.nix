@@ -78,12 +78,12 @@
   };
 
   vim-rooter = vimUtils.buildVimPluginFrom2Nix {
-    name = "vim-rooter-2017-11-20";
+    name = "vim-rooter-2018-09-28";
     src = fetchFromGitHub {
       owner = "airblade";
       repo = "vim-rooter";
-      rev = "3509dfb80d0076270a04049548738daeedf6dfb9";
-      sha256 = "03j26fw0dcvcc81fn8hx1prdwlgnd3g340pbxrzgbgxxq5kr0bwl";
+      rev = "d5bb76e31c030e6b9197491ff521eca49332564b";
+      sha256 = "1g1x7pkhalg354i41ch0wf2hmyjd33jsrc14lc8m732wxh65i0wa";
     };
     dependencies = [];
   };
