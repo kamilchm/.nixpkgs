@@ -23,12 +23,12 @@
   };
 
   vim-graphql = vimUtils.buildVimPluginFrom2Nix {
-    name = "vim-graphql-2018-11-25";
+    name = "vim-graphql-2019-02-14";
     src = fetchFromGitHub {
       owner = "jparise";
       repo = "vim-graphql";
-      rev = "142f34682e7536d0e0a9d9ebb312fe68677dd241";
-      sha256 = "0vg6pja0ja6ck31a33dcmd2mfav0ip8ry99dvk1f39zsj78fbjcb";
+      rev = "792c7bcb138c1e787a7527f16ce63e8cf53df6ba";
+      sha256 = "1hncf7kjn6acji67x263xraqlvdg4kszwhlzcggym81mcxmpmzl6";
     };
     dependencies = [];
   };
