@@ -11,17 +11,6 @@
     dependencies = [];
   };
 
-  elm-vim = vimUtils.buildVimPluginFrom2Nix {
-    name = "elm.vim-2017-07-09";
-    src = fetchFromGitHub {
-      owner = "ElmCast";
-      repo = "elm-vim";
-      rev = "ae5315396cd0f3958750f10a5f3ad9d34d33f40d";
-      sha256 = "0a85l0mcxgha4s5c9lzdv9y2c1ff942y9a5sfjihz6sph21c77xp";
-    };
-    dependencies = [];
-  };
-
   vim-pony = vimUtils.buildVimPluginFrom2Nix {
     name = "vim-pony-2017-09-30";
     src = fetchFromGitHub {
