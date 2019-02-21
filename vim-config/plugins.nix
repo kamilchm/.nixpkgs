@@ -44,17 +44,6 @@
     dependencies = [];
   };
 
-  alchemist-vim = vimUtils.buildVimPluginFrom2Nix {
-    name = "alchemist-vim-2018-09-02";
-    src = fetchFromGitHub {
-      owner = "slashmili";
-      repo = "alchemist.vim";
-      rev = "35e7e3062d1661b1c081765ed05bd8f0f5265183";
-      sha256 = "08i2nzsaq73iz8wkryq5nly3hl0xb3zy16zk7k28bslvyj3ricnc";
-    };
-    dependencies = [];
-  };
-
   hexmode = vimUtils.buildVimPluginFrom2Nix {
     name = "hexmode-2016-11-04";
     src = fetchFromGitHub {
