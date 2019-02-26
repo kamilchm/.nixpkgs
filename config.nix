@@ -8,7 +8,6 @@
 
   chromium = {
     enablePepperFlash = true;
-    enablePepperPDF = true;
   };
 
 
