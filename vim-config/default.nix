@@ -110,6 +110,7 @@ in with pkgs; neovim.override {
         "vim-ripgrep"
         "deoplete-nvim"
         "LanguageClient-neovim"
+        "editorconfig-vim"
         "vim-test"
         "molokai"
         "fugitive"
