@@ -87,6 +87,8 @@ in with pkgs; neovim.override {
       let g:opamshare = substitute(system('${pkgs.opam}/bin/opam config var share'),'\n$',''','''''')
       execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
+      au FileType markdown setlocal spell
+
       nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
       nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
       nnoremap <silent> gd :call LanguageClient_textDocument_definition()<cr>
