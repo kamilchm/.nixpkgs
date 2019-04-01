@@ -32,6 +32,8 @@
       inherit (pkgs) stdenv;
     };
 
+    beakerbrowser = callPackage ./beakerbrowser.nix {};
+
     all = with pkgs; buildEnv {
       name = "all";
 
@@ -99,6 +101,7 @@
 
         firefoxWrapper
         chromium
+        beakerbrowser
         httpie
         mitmproxy
 
