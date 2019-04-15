@@ -53,7 +53,7 @@
         appimage-run
 
         telnet
-        wireshark-gtk
+        wireshark-qt
         bind
         netcat-openbsd
 
