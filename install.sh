@@ -8,7 +8,7 @@ pushd $HOME > /dev/null
 
 echo "Creating dotfiles links in user home"
 find .nix-profile/userHome/ -maxdepth 1 | sed "s/.nix-profile\/userHome\///g" | \
-    grep -v "^$" | xargs -I {} ln -sf .nix-profile/userHome/{} {}
+    grep -v "^$" | xargs -I {} sh -c 'rm -rf {} && ln -sf .nix-profile/userHome/{} {}'
 
 popd > /dev/null
 
