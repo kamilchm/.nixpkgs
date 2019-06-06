@@ -72,6 +72,7 @@ in with pkgs; neovim.override {
       let g:LanguageClient_serverCommands = {
           \ 'python': ['pyls'],
           \ 'reason': ['ocaml-language-server', '--stdio'],
+          \ 'purescript': ['npx', 'purescript-language-server', '--stdio'],
           \ 'typescript': ['npx', 'typescript-language-server', '--stdio'],
           \ }
       " Automatically start language servers.
@@ -131,6 +132,7 @@ in with pkgs; neovim.override {
         "vim-elixir"
         "alchemist-vim"
         "vim-reason-plus"
+        "purescript-vim"
         "vim-flow"
         "vim-pug"
         "hexmode"
