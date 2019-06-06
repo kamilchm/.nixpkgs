@@ -31,6 +31,9 @@
     elixir-config = import ./elixir-config {
       inherit (pkgs) stdenv;
     };
+    tig-config = import ./tig-config {
+      inherit (pkgs) stdenv;
+    };
 
     beakerbrowser = callPackage ./beakerbrowser.nix {};
 
@@ -43,6 +46,7 @@
         qtile-config
         bash-config
         elixir-config
+        tig-config
 
         nix-prefetch-scripts
         nixpkgs-lint
