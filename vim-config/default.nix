@@ -74,6 +74,7 @@ in with pkgs; neovim.override {
           \ 'reason': ['ocaml-language-server', '--stdio'],
           \ 'purescript': ['npx', 'purescript-language-server', '--stdio'],
           \ 'typescript': ['npx', 'typescript-language-server', '--stdio'],
+          \ 'javascript': ['npx', '-p', 'javascript-typescript-langserver', 'javascript-typescript-stdio'],
           \ }
       " Automatically start language servers.
       let g:LanguageClient_autoStart = 1
