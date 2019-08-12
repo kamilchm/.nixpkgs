@@ -134,6 +134,7 @@ in with pkgs; neovim.override {
         "alchemist-vim"
         "vim-reason-plus"
         "purescript-vim"
+        "haskell-vim"
         "vim-flow"
         "vim-pug"
         "hexmode"
