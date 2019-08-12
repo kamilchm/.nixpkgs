@@ -71,6 +71,7 @@ in with pkgs; neovim.override {
 
       let g:LanguageClient_serverCommands = {
           \ 'python': ['pyls'],
+          \ 'haskell': ['hie-wrapper'],
           \ 'reason': ['ocaml-language-server', '--stdio'],
           \ 'purescript': ['npx', 'purescript-language-server', '--stdio'],
           \ 'typescript': ['npx', 'typescript-language-server', '--stdio'],
