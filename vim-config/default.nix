@@ -80,6 +80,7 @@ in with pkgs; neovim.override {
       " Automatically start language servers.
       let g:LanguageClient_autoStart = 1
       let g:LanguageClient_signColumnAlwaysOn = 1
+      let g:LanguageClient_loggingFile = expand('~/.vim/LanguageClient.log')
       " let g:LanguageClient_loggingLevel = 'DEBUG'
 
       au BufEnter *.ml setf ocaml
