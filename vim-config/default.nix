@@ -117,6 +117,7 @@ in with pkgs; neovim.override {
         "deoplete-nvim"
         "LanguageClient-neovim"
         "editorconfig-vim"
+        "vim-autoformat"
         "vim-test"
         "molokai"
         "fugitive"
