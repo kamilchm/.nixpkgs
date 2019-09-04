@@ -39,7 +39,11 @@ in with pkgs; neovim.override {
       let g:ctrlp_user_command = 'rg --files %s'
       let g:ctrlp_use_caching = 0
 
+      " autocompletion
       let g:deoplete#enable_at_startup = 1
+      " use CTRL+Space to autocomplete
+      inoremap <C-Space> <C-x><C-o>
+      inoremap <C-@> <C-Space>
 
       " Error and warning signs.
       let g:ale_sign_error = '⤫'
