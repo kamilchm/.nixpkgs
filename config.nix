@@ -143,7 +143,6 @@
         gparted
         proot
         vagrant
-        ansible2
 
         evince
         libreoffice
