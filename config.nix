@@ -124,6 +124,7 @@
         beam.packages.erlangR21.elixir_1_8
 
         flow
+        shellcheck
 
         jdk
         maven
