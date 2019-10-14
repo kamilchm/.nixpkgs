@@ -88,6 +88,12 @@
         vscode
         typora
 
+        aspell
+        aspellDicts.en
+        aspellDicts.en-computers
+        aspellDicts.en-science
+        aspellDicts.pl
+
         git
         git-radar
         gitg
