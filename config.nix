@@ -137,7 +137,7 @@
         nim
         ponyc
 
-        python36Packages.glances
+        python37Packages.glances
 
         docker-compose
         gparted
