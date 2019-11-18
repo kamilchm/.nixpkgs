@@ -55,6 +55,17 @@
     dependencies = [];
   };
 
+  vim-ocaml = vimUtils.buildVimPluginFrom2Nix {
+    name = "vim-ocaml-2019-11-06";
+    src = fetchFromGitHub {
+      owner = "ocaml";
+      repo = "vim-ocaml";
+      rev = "48a76277f6c139bb043b16e51d83f272453b591f";
+      sha256 = "18fnkgkhmi5zn9rr0g783qcllw4dn70xxhabcj9bbmrx3lm3pjz4";
+    };
+    dependencies = [];
+  };
+
   vim-reason-plus = vimUtils.buildVimPluginFrom2Nix {
     name = "vim-reason-plus-2018-08-22";
     src = fetchFromGitHub {

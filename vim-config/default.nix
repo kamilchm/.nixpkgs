@@ -141,6 +141,7 @@ in with pkgs; neovim.override {
         "nim-vim"
         "vim-elixir"
         "alchemist-vim"
+        "vim-ocaml"
         "vim-reason-plus"
         "purescript-vim"
         "haskell-vim"
