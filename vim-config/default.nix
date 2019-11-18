@@ -133,7 +133,7 @@ in with pkgs; neovim.override {
         "sleuth"
         "vim-go"
         "vim-javascript"
-        "typescript-vim"
+        "yats-vim"
         "vim-graphql"
         "vim-vue"
         "elm-vim"
