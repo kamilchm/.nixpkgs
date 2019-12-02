@@ -85,6 +85,7 @@
         fd
         ranger
         my_vim
+        nushell
         vscode
         typora
 
