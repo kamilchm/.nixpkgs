@@ -125,6 +125,7 @@ in with pkgs; neovim.override {
         "LanguageClient-neovim"
         "editorconfig-vim"
         "vim-autoformat"
+        "tcomment_vim"
         "vim-test"
         "molokai"
         "fugitive"
