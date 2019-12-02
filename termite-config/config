@@ -7,7 +7,7 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-#font = Droid Sans Mono 12
+font = Monospace 12
 scrollback_lines = 1000
 search_wrap = true
 #icon_name = terminal
@@ -49,7 +49,7 @@ color13 = #ec93d3
 color14 = #93e0e3
 color15 = #ffffff
 [hints]
-font = Monospace 12
+#font = FiraCode 12
 #foreground = #dcdccc
 #background = #3f3f3f
 #active_foreground = #e68080
