@@ -66,7 +66,7 @@
         powerline-fonts
         clipit
         xsel
-        ntfy
+        # ntfy
 
         pasystray
         pavucontrol
