@@ -52,7 +52,7 @@ in with pkgs; neovim.override {
       " Enable integration with airline.
       let g:airline#extensions#ale#enabled = 1
 
-      let g:rooter_patterns = ['package.json', '.git', '.git/', '_darcs/', '.hg/', '.bzr/', '.svn/']
+      let g:rooter_patterns = ['lerna.json', 'package.json', '.git', '.git/', '_darcs/', '.hg/', '.bzr/', '.svn/']
 
       let g:ale_linters = {
       \   'javascript': ['standard', 'flow'],
