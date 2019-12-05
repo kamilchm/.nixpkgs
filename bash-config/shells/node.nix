@@ -1,8 +1,8 @@
 with import <nixpkgs> {};
 
 mkShell {
-  buildInputs = [ nodejs-10_x python27 ] ++
-    (with nodePackages_10_x; [ yarn node-gyp node-gyp-build node-pre-gyp ]);
+  buildInputs = [ nodejs-12_x python27 vips gobject-introspection pkgconfig ] ++
+    (with nodePackages; [ yarn flow node-gyp node-gyp-build node-pre-gyp ]);
 
   shellHook = ''
     export LANG="en_US.UTF-8"
