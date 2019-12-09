@@ -5,6 +5,7 @@ mkShell {
     (with ocamlPackages; [ ocaml ninja merlin reason ]);
 
   shellHook = ''
+    export npm_config_ignore_scripts=true
     export PATH="`pwd`/node_modules/.bin:$PATH"
 
     if [ ! -f node_modules/.bin/bsc ]; then
