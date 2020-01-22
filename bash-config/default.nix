@@ -1,4 +1,4 @@
-{stdenv, fzf, jdk}:
+{ stdenv, fzf, jdk }:
 
 stdenv.mkDerivation rec {
   name = "bash-config";
