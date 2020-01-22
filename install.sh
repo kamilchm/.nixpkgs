@@ -11,4 +11,8 @@ find . -follow -type f -printf "rm -rf '$HOME/%p' && mkdir -p '$HOME/%h' && ln -
 
 popd > /dev/null
 
+echo "Installing nix shells"
+rm -rf /nix/var/nix/gcroots/per-user/kamil/nxs-*
+find bash-config/shells/ -type f -printf "nix-instantiate --add-root /nix/var/nix/gcroots/per-user/kamil/nxs-%f %p -A buildInputs | sed -e 's/!dev$//g' | xargs nix-build\n" | xargs -I {} sh -c {}
+
 echo "Done"
