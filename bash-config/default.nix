@@ -1,9 +1,11 @@
-{ stdenv, fzf, jdk }:
+{ stdenv, bashInteractive, fzf, jdk }:
 
 stdenv.mkDerivation rec {
   name = "bash-config";
 
   phases = [ "installPhase" ];
+
+  buildInputs = [ bashInteractive ];
 
   src = ./.;
 

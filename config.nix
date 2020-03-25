@@ -25,7 +25,7 @@
       inherit (pkgs) stdenv;
     };
     bash-config = import ./bash-config {
-      inherit (pkgs) stdenv fzf; inherit jdk;
+      inherit (pkgs) stdenv bashInteractive fzf; inherit jdk;
     };
     my_vim = import ./vim-config { inherit pkgs ; };
     elixir-config = import ./elixir-config {
