@@ -1,7 +1,7 @@
 with import <nixpkgs> {};
 
 mkShell {
-  buildInputs = [ purescript psc-package spago purescript-psa nodejs-12_x pkgconfig ] ++
+  buildInputs = [ purescript spago purescript-psa nodejs-12_x pkgconfig ] ++
     (with nodePackages; [ pulp bower yarn node-gyp node-gyp-build node-pre-gyp ]);
 
   shellHook = ''
