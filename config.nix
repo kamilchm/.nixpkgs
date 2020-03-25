@@ -118,6 +118,7 @@
 
         tokei
         jq
+        cue
 
         go
 
