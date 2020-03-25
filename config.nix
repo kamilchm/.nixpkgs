@@ -139,7 +139,7 @@
         nim
         ponyc
 
-        python37Packages.glances
+        glances
 
         docker-compose
         gparted
