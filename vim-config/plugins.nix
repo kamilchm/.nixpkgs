@@ -23,23 +23,12 @@
   };
 
   vim-graphql = vimUtils.buildVimPluginFrom2Nix {
-    name = "vim-graphql-2019-02-14";
+    name = "vim-graphql-2020-01-01";
     src = fetchFromGitHub {
       owner = "jparise";
       repo = "vim-graphql";
-      rev = "792c7bcb138c1e787a7527f16ce63e8cf53df6ba";
-      sha256 = "1hncf7kjn6acji67x263xraqlvdg4kszwhlzcggym81mcxmpmzl6";
-    };
-    dependencies = [];
-  };
-
-  vim-vue = vimUtils.buildVimPluginFrom2Nix {
-    name = "vim-vue-2017-12-12";
-    src = fetchFromGitHub {
-      owner = "posva";
-      repo = "vim-vue";
-      rev = "6518e738863f0acd190c7564a109be021cae1b56";
-      sha256 = "1rdm94632amrcynwbx7iny8wssk9b9rk8izrb7q1y7vf3ma5jkrs";
+      rev = "0858a26d7b3bd263f40b1844829651ea5a577364";
+      sha256 = "15mfxidql0qy6sxd3dmm894fjw552kp1xia0iikcvywrxgdrpnic";
     };
     dependencies = [];
   };
@@ -84,17 +73,6 @@
       repo = "vim-flow";
       rev = "4acd33aceb3c49c6872ee4f3f717802d4c73efbf";
       sha256 = "1dq38mlzwalkvps9zpzc3fz5bmrx9rwb39gan4x5qlg59yywry91";
-    };
-    dependencies = [];
-  };
-
-  vim-rooter = vimUtils.buildVimPluginFrom2Nix {
-    name = "vim-rooter-2018-09-28";
-    src = fetchFromGitHub {
-      owner = "airblade";
-      repo = "vim-rooter";
-      rev = "d5bb76e31c030e6b9197491ff521eca49332564b";
-      sha256 = "1g1x7pkhalg354i41ch0wf2hmyjd33jsrc14lc8m732wxh65i0wa";
     };
     dependencies = [];
   };
