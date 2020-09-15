@@ -78,6 +78,7 @@ in with pkgs; neovim.override {
       let g:LanguageClient_serverCommands = {
           \ 'python': ['pyls'],
           \ 'haskell': ['hie-wrapper'],
+          \ 'rust': ['rls'],
           \ 'reason': ['ocaml-language-server', '--stdio'],
           \ 'purescript': ['npx', 'purescript-language-server', '--stdio'],
           \ 'typescript': ['npx', 'typescript-language-server', '--stdio'],
@@ -133,6 +134,7 @@ in with pkgs; neovim.override {
         "vim-airline"
         "vim-airline-themes"
         "sleuth"
+        "rust-vim"
         "vim-go"
         "vim-javascript"
         "vim-jsx-pretty"
@@ -149,6 +151,7 @@ in with pkgs; neovim.override {
         "purescript-vim"
         "haskell-vim"
         "dhall-vim"
+        "vim-toml"
         "vim-flow"
         "vim-pug"
         "hexmode"
