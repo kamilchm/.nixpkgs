@@ -120,7 +120,7 @@ def setup_screens(qtile):
                     widget.Prompt(),
                     widget.WindowName(),
                     widget.Clipboard(),
-                    widget.Battery(hide_threshold=99),
+                    widget.Battery(hide_threshold=99, format='{char} {percent:2.0%} {hour:d}:{min:02d}'),
                     widget.CPUGraph(graph_color='F8FF33',
                                     fill_color='FCFFAD.3'),
                     widget.MemoryGraph(graph_color='31F500',
