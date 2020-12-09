@@ -107,7 +107,7 @@
 
         bc
 
-        firefoxWrapper
+        firefox-bin
         chromium
         beakerbrowser
         httpie
