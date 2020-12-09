@@ -12,7 +12,7 @@
 
 
   packageOverrides = pkgs_: with pkgs_;
-    let jdk = openjdk11; in {
+    let jdk = adoptopenjdk-hotspot-bin-15; in {
 
     gtk-config = import ./gtk-config {
       inherit (pkgs) stdenv albatross;
