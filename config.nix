@@ -101,9 +101,6 @@
         meld
         tig
 
-        bazaar
-        mercurial
-
         zip
         unzip
         p7zip
