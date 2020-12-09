@@ -7,6 +7,5 @@ mkShell {
   shellHook = ''
     export LANG="en_US.UTF-8"
     export npm_config_ignore_scripts=true
-    export PATH="`pwd`/node_modules/.bin:$PATH"
   '';
 }
