@@ -80,6 +80,7 @@ in with pkgs; neovim.override {
           \ 'haskell': ['hie-wrapper'],
           \ 'rust': ['rls'],
           \ 'reason': ['ocaml-language-server', '--stdio'],
+          \ 'ocaml': ['ocamllsp'],
           \ 'purescript': ['npx', 'purescript-language-server', '--stdio'],
           \ 'typescript': ['npx', 'typescript-language-server', '--stdio'],
           \ 'typescriptreact': ['npx', 'typescript-language-server', '--stdio'],
@@ -96,8 +97,8 @@ in with pkgs; neovim.override {
       au BufEnter *.atd setf ocaml
       au FileType ocaml set shiftwidth=2 tabstop=2
 
-      let g:opamshare = substitute(system('${pkgs.opam}/bin/opam config var share'),'\n$',''','''''')
-      execute "set rtp+=" . g:opamshare . "/merlin/vim"
+      " let g:opamshare = substitute(system('${pkgs.opam}/bin/opam config var share'),'\n$',''','''''')
+      " execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
       au FileType markdown setlocal spell
 
