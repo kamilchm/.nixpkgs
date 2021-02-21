@@ -54,11 +54,6 @@ in with pkgs; neovim.override {
 
       let g:rooter_patterns = ['lerna.json', 'package.json', '.git', '.git/', '_darcs/', '.hg/', '.bzr/', '.svn/']
 
-      let g:ale_linters = {
-      \   'javascript': ['standard', 'flow'],
-      \}
-      let g:ale_fixers = {'javascript': ['standard']}
-
       let g:go_highlight_build_constraints = 1
       let g:go_highlight_extra_types = 1
       let g:go_highlight_fields = 1
@@ -111,8 +106,6 @@ in with pkgs; neovim.override {
 
       nnoremap <silent> T :TestNearest<CR>
 
-      let g:flow#autoclose = 1
-      let g:flow#showquickfix = 0
     '';
 
     vam.knownPlugins = vimPlugins // my_plugins // { "tlib" = vimPlugins.tlib_vim; };
@@ -154,7 +147,6 @@ in with pkgs; neovim.override {
         "haskell-vim"
         "dhall-vim"
         "vim-toml"
-        "vim-flow"
         "vim-pug"
         "hexmode"
       ]; }

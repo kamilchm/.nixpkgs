@@ -66,17 +66,6 @@
     dependencies = [];
   };
 
-  vim-flow = vimUtils.buildVimPluginFrom2Nix {
-    name = "vim-flow-2017-12-13";
-    src = fetchFromGitHub {
-      owner = "flowtype";
-      repo = "vim-flow";
-      rev = "4acd33aceb3c49c6872ee4f3f717802d4c73efbf";
-      sha256 = "1dq38mlzwalkvps9zpzc3fz5bmrx9rwb39gan4x5qlg59yywry91";
-    };
-    dependencies = [];
-  };
-
   vim-pug = vimUtils.buildVimPluginFrom2Nix {
     name = "vim-pug-2019-02-12";
     src = fetchFromGitHub {
