@@ -2,15 +2,6 @@
   allowUnfree = true;
   android_sdk.accept_license = true;
 
-  firefox = {
-    enableAdobeFlash = true;
-  };
-
-  chromium = {
-    enablePepperFlash = true;
-  };
-
-
   packageOverrides = pkgs_: with pkgs_;
     let jdk = adoptopenjdk-hotspot-bin-15; in {
 
