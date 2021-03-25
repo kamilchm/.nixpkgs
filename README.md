@@ -6,7 +6,7 @@
 2. Prepare **dotfiles** with [injected](https://github.com/kamilchm/.nixpkgs/blob/5c360c3a05872f5ea15d771d289c812a3dd159b5/gtk-config/default.nix#L14)
 dependencies from https://github.com/NixOS/nixpkgs and [install it](https://github.com/kamilchm/.nixpkgs/blob/b5a0ccc07998485196ed30471e4e81781041dd74/termite-config/default.nix#L12)
 into **$out/userHome**.
-3. Link **dotfiles** from *.nix-profile* into user home directory.
+3. [Link](https://github.com/kamilchm/.nixpkgs/blob/master/install.sh#L10) **dotfiles** from *.nix-profile* into user home directory.
 
 ## How to use it?
 
