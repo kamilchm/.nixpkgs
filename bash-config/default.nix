@@ -1,11 +1,11 @@
-{ stdenv, bashInteractive, fzf, jdk }:
+{ stdenv, bashInteractive, fzf, broot, jdk }:
 
 stdenv.mkDerivation rec {
   name = "bash-config";
 
   phases = [ "installPhase" ];
 
-  buildInputs = [ bashInteractive ];
+  propagatedBuildInputs = [ bashInteractive ];
 
   src = ./.;
 
@@ -13,6 +13,8 @@ stdenv.mkDerivation rec {
     install -dm 755 $out/userHome
     substitute $src/bashrc $out/userHome/.bashrc \
       --subst-var-by fzf_src ${fzf.src}
+    substituteInPlace $out/userHome/.bashrc \
+      --subst-var-by broot ${broot}
     substituteInPlace $out/userHome/.bashrc \
       --subst-var-by jdk ${jdk}
 

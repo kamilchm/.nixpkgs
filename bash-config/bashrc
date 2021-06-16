@@ -5,6 +5,8 @@ export EDITOR=vim
 source @fzf_src@/shell/key-bindings.bash
 export FZF_TMUX=0
 
+source @broot@/etc/profile.d/br.bash
+
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 export GOPATH="/home/kamil"
