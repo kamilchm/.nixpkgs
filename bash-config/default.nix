@@ -1,4 +1,4 @@
-{ stdenv, bashInteractive, fzf, broot, jdk }:
+{ stdenv, bashInteractive, glibcLocales, fzf, broot, jdk }:
 
 stdenv.mkDerivation rec {
   name = "bash-config";
@@ -13,6 +13,8 @@ stdenv.mkDerivation rec {
     install -dm 755 $out/userHome
     substitute $src/bashrc $out/userHome/.bashrc \
       --subst-var-by fzf_src ${fzf.src}
+    substituteInPlace $out/userHome/.bashrc \
+      --subst-var-by glibcLocales ${glibcLocales}
     substituteInPlace $out/userHome/.bashrc \
       --subst-var-by broot ${broot}
     substituteInPlace $out/userHome/.bashrc \

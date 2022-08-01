@@ -1,19 +1,38 @@
 source ~/.term_profile
 
+export LOCALE_ARCHIVE=@glibcLocales@/lib/locale/locale-archive
+
 export EDITOR=vim
 
 source @fzf_src@/shell/key-bindings.bash
+export FZF_DEFAULT_COMMAND='fd --type file --hidden --color=always --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_OPTS="--ansi"
 export FZF_TMUX=0
 
 source @broot@/etc/profile.d/br.bash
 
 export ERL_AFLAGS="-kernel shell_history enabled"
 
+export NIX_PATH="nixpkgs=$HOME/nixpkgs:$NIX_PATH"
+
 export GOPATH="/home/kamil"
+
+export DOCKER_BUILDKIT=1
 
 export PATH="/home/kamil/.nimble/bin:$GOPATH/bin:/home/kamil/.nix-profile/bin:$PATH"
 
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+
+source /etc/profile.d/bash_completion.sh
+export XDG_DATA_DIRS="$HOME/.nix-profile/share:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
+
 export JAVA_HOME="@jdk@"
+
+# run if interactive https://askubuntu.com/questions/1321753/stty-standard-input-inappropriate-ioctl-for-device
+# [[ $- == *i* ]] && export GPG_TTY=$(tty)
+
+alias chromium-dark="chromium --enable-features=WebContentsForceDark"
 
 nxs() {
     sfile="@shells@/$1.nix"

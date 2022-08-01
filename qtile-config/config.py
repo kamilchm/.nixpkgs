@@ -7,7 +7,7 @@ import subprocess
 
 from libqtile.config import Key, Screen, Group, Drag, Click
 from libqtile.command import lazy
-from libqtile import layout, bar, widget, hook
+from libqtile import layout, bar, widget, hook, qtile
 
 mod = "mod4"
 
@@ -60,7 +60,7 @@ keys = [
         [mod, "shift"], "Return",
         lazy.layout.toggle_split()
     ),
-    Key([mod], "Return", lazy.spawn("termite")),
+    Key([mod], "Return", lazy.spawn("tilix -a app-new-window")),
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout()),
@@ -73,14 +73,19 @@ keys = [
     Key([mod], "r", lazy.spawncmd()),
     Key([mod], "q", lazy.spawn("xfce4-appfinder --disable-server")),
 
-    Key([], 'Print', lazy.spawn("xfce4-screenshooter")),
+    Key([], 'Print', lazy.spawn("gnome-screenshot -i")),
 
     Key([], "XF86AudioRaiseVolume",
         lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +2%")),
     Key([], "XF86AudioLowerVolume",
         lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -2%")),
     Key([], "XF86AudioMute",
-        lazy.spawn("amixer -D pulse set Master 1+ toggle")),
+        lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")),
+
+    Key([], "XF86MonBrightnessDown",
+        lazy.spawn("brightnessctl set 2%-")),
+    Key([], "XF86MonBrightnessUp",
+        lazy.spawn("brightnessctl set +2%")),
 ]
 
 groups = [Group(i) for i in "asdfuiop"]
@@ -107,35 +112,35 @@ widget_defaults = dict(
     padding=3,
 )
 
-screens = []
-
-
-def setup_screens(qtile):
-    global screens
-    screens.append(
-        Screen(
-            bottom=bar.Bar(
-                [
-                    widget.GroupBox(),
-                    widget.Prompt(),
-                    widget.WindowName(),
-                    widget.Clipboard(),
-                    widget.Battery(hide_threshold=99, format='{char} {percent:2.0%} {hour:d}:{min:02d}'),
-                    widget.CPUGraph(graph_color='F8FF33',
-                                    fill_color='FCFFAD.3'),
-                    widget.MemoryGraph(graph_color='31F500',
-                                       fill_color='9DFF85.3'),
-                    widget.NetGraph(),
-                    widget.DF(warn_space=10, update_interval=300),
-                    widget.Volume(),
-                    widget.Systray(),
-                    widget.Notify(),
-                    widget.Clock(format='%Y-%m-%d %a %H:%M'),
-                ],
-                30,
-            ),
+screens = [
+    Screen(
+        bottom=bar.Bar(
+            [
+                widget.GroupBox(),
+                widget.Prompt(),
+                widget.WindowName(),
+                widget.Notify(),
+                widget.Clipboard(),
+                widget.Battery(hide_threshold=99, format='{char} {percent:2.0%} {hour:d}:{min:02d}'),
+                widget.CPUGraph(graph_color='F8FF33',
+                                fill_color='E8FF44.3'),
+                widget.MemoryGraph(graph_color='31F500',
+                                   fill_color='41FF11.3'),
+                widget.NetGraph(),
+                widget.DF(warn_space=10, update_interval=300),
+                # widget.Volume(),
+                # widget.PulseVolume(),
+                widget.Systray(),
+                widget.Clock(format='%Y-%m-%d %a %H:%M'),
+            ],
+            30,
         ),
-    )
+        wallpaper='~/Pictures/wallpapers/milkyway.jpeg', wallpaper_mode='fill'
+    ),
+]
+
+def setup_screens():
+    global screens
     if len(qtile.conn.pseudoscreens) > 1:
         screens.append(
             Screen(
@@ -190,10 +195,3 @@ def startup():
     Thread(target=blocking).start()
 
 
-@hook.subscribe.screen_change
-def restart_on_randr(qtile, ev):
-    qtile.cmd_restart()
-
-
-def main(qtile):
-    setup_screens(qtile)

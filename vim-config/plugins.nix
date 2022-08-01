@@ -1,12 +1,12 @@
 { vimUtils, fetchFromGitHub }:
 {
   vim-ripgrep = vimUtils.buildVimPluginFrom2Nix {
-    name = "vim-ripgrep-2018-09-09";
+    name = "vim-ripgrep-2021-11-30";
     src = fetchFromGitHub {
       owner = "jremmen";
       repo = "vim-ripgrep";
-      rev = "ec87af6b69387abb3c4449ce8c4040d2d00d745e";
-      sha256 = "1by56rflr0bmnjvcvaa9r228zyrmxwfkzkclxvdfscm7l7n7jnmh";
+      rev = "2bb2425387b449a0cd65a54ceb85e123d7a320b8";
+      sha256 = "sha256-OvQPTEiXOHI0uz0+6AVTxyJ/TUMg6kd3BYTAbnCI7W8=";
     };
     dependencies = [];
   };
@@ -22,14 +22,16 @@
     dependencies = [];
   };
 
-  vim-reason-plus = vimUtils.buildVimPluginFrom2Nix {
-    name = "vim-reason-plus-2018-08-22";
+  nim-nvim = vimUtils.buildVimPluginFrom2Nix {
+    pname = "nim-nvim";
+    version = "2021-05-11";
     src = fetchFromGitHub {
-      owner = "reasonml-editor";
-      repo = "vim-reason-plus";
-      rev = "e4460795d80329ec20e9ddc7b535f1cd2731acc8";
-      sha256 = "07351b58afid3jwxmw9xmplpkxjy4hpbkfkw0lqapndn4a8xjnm0";
+      owner = "alaviss";
+      repo = "nim.nvim";
+      rev = "ceed60855f47aa2f1d11bc737dd0e4f417c28afa";
+      sha256 = "02kxlj9swzv9lidbmc9r297ilh3170rlpmvd13gmywdi7nv381k7";
     };
-    dependencies = [];
+    meta.homepage = "https://github.com/alaviss/nim.nvim/";
   };
+
 }

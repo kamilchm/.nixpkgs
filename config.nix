@@ -3,20 +3,19 @@
   android_sdk.accept_license = true;
 
   packageOverrides = pkgs_: with pkgs_;
-    let jdk = adoptopenjdk-hotspot-bin-15; in {
 
     gtk-config = import ./gtk-config {
-      inherit (pkgs) stdenv albatross;
+      inherit (pkgs) stdenv materia-theme;
     };
     termite-config = import ./termite-config {
       inherit (pkgs) stdenv;
-      vte = gnome3.vte;
+      vte = vte;
     };
     qtile-config = import ./qtile-config {
       inherit (pkgs) stdenv;
     };
     bash-config = import ./bash-config {
-      inherit (pkgs) stdenv bashInteractive fzf broot; inherit jdk;
+      inherit (pkgs) stdenv bashInteractive glibcLocales fzf broot; inherit jdk;
     };
     my_vim = import ./vim-config { inherit pkgs ; };
     elixir-config = import ./elixir-config {
@@ -26,7 +25,7 @@
       inherit (pkgs) stdenv;
     };
 
-    beakerbrowser = callPackage ./beakerbrowser.nix {};
+    beekeeper-studio = callPackage ./beekeeper-studio.nix {};
 
     all = with pkgs; buildEnv {
       name = "all";
@@ -39,21 +38,27 @@
         elixir-config
         tig-config
 
-        nix-prefetch-scripts
+        # nix-prefetch-scripts
         nixpkgs-lint
-        nixops
         nox
         patchelf
         patchutils
-        appimage-run
 
-        telnet
+        utillinux
+        usbutils
+        inetutils
         wireshark-qt
         bind
-        netcat-openbsd
+        libressl.nc
+        socat
+        websocat
+        wavemon
 
+        qtile
         termite
-        cv
+        tilix
+        nix-bash-completions
+        progress
         powerline-fonts
         clipit
         xsel
@@ -61,9 +66,8 @@
 
         pasystray
         pavucontrol
-        alsaUtils
+        brightnessctl
 
-        blueman
 
         arandr
 
@@ -76,10 +80,9 @@
         ripgrep
         fd
         ranger
+        gdu
         my_vim
-        nushell
         vscode
-        typora
 
         aspell
         aspellDicts.en
@@ -95,59 +98,54 @@
 
         zip
         unzip
-        p7zip
 
         bc
 
+        gnupg
+
         firefox-bin
-        chromium
-        beakerbrowser
+        ungoogled-chromium
+        google-chrome
         httpie
         mitmproxy
 
         tokei
+        sqlite
+        sqlite-utils
         jq
+        yq
         cue
+        jsonnet
 
         go
 
-        erlangR21
-        beam.packages.erlangR21.elixir_1_8
 
-        flow
         shellcheck
 
-        jdk
-        maven
-        #idea.idea-ultimate
+        scrcpy
         #heroku
 
-        python36
         gcc
 
         nim
-        ponyc
 
         glances
 
         docker-compose
         gparted
         proot
-        vagrant
 
         evince
         libreoffice
         vlc
         ffmpeg
-        geeqie
+        gthumb
         pinta
         inkscape
         graphicsmagick
-        zoom-us
+        vokoscreen-ng
 
-        deluge
 
-        hexchat
       ];
     };
   };

@@ -7,8 +7,6 @@ PS1='\[\033[35m\]\t\[\033[m\]$(git-radar --bash) \$ '
 eval "$(dircolors -b ~/.dircolors)"
 alias ls='ls --color=auto'
 
-if [[ $TERM == xterm-termite ]]; then
-  . @vte@/etc/profile.d/vte.sh
-  __vte_prompt_command
-  export TERM="xterm-256color"
-fi
+. @vte@/etc/profile.d/vte.sh
+__vte_prompt_command
+export TERM="xterm-256color"

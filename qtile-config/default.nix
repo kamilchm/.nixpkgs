@@ -1,4 +1,4 @@
-{stdenv}:
+{ stdenv }:
 
 stdenv.mkDerivation rec {
   name = "termite-config";
