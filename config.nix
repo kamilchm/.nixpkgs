@@ -2,7 +2,7 @@
   allowUnfree = true;
   android_sdk.accept_license = true;
 
-  packageOverrides = pkgs_: with pkgs_;
+  packageOverrides = pkgs_: with pkgs_; {
 
     gtk-config = import ./gtk-config {
       inherit (pkgs) stdenv materia-theme;
@@ -24,8 +24,6 @@
     tig-config = import ./tig-config {
       inherit (pkgs) stdenv;
     };
-
-    beekeeper-studio = callPackage ./beekeeper-studio.nix {};
 
     all = with pkgs; buildEnv {
       name = "all";
