@@ -38,7 +38,7 @@ g.airline_theme = 'molokai'
 
 -- ripgrep
 opt.grepprg = 'rg --'
-map('n', '<silent> F', ':Rg<CR>')
+map('n', 'F', ':Rg<CR>')
 
 -- ctrlp
 g.ctrlp_user_command = 'fd -H --type f --color=never "" %s'
