@@ -47,6 +47,7 @@ in with pkgs; neovim.override {
       vim-elixir
       alchemist-vim
       vim-ocaml
+      vim-terraform
       purescript-vim
       haskell-vim
       dhall-vim

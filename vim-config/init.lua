@@ -38,7 +38,7 @@ g.airline_theme = 'molokai'
 
 -- ripgrep
 opt.grepprg = 'rg --'
-map('n', 'silent> F', ':Rg<CR>')
+map('n', '<silent> F', ':Rg<CR>')
 
 -- ctrlp
 g.ctrlp_user_command = 'fd -H --type f --color=never "" %s'
@@ -194,7 +194,7 @@ require('lspconfig')['tsserver'].setup{
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,
-    cmd = { 'pnpm', 'dlx', 'typescript-language-server', '--stdio'  },
+    cmd = { 'pnpm', '--package=typescript-language-server', '--package=typescript', 'dlx', 'typescript-language-server', '--stdio'  },
 }
 require('lspconfig')['zls'].setup{
     on_attach = on_attach,
@@ -216,4 +216,8 @@ require('lspconfig')['dockerls'].setup{
     flags = lsp_flags,
     cmd = { 'pnpm', 'dlx', "dockerfile-language-server-nodejs", "docker-langserver", "--stdio" }
 }
-
+require'lspconfig'.terraform_lsp.setup{
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = lsp_flags,
+}
