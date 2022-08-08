@@ -1,5 +1,14 @@
 source ~/.term_profile
 
+if [[ -z "$IN_NIX_SHELL"  ]]; then # special PS1 is set for nxs nix-shells
+  PS1='\[\033[35m\]\t\[\033[m\]$(git-radar --bash) \$ '
+fi
+if [[ -n "$IN_NIX_SHELL"  ]]; then # mark all nix-shells (custom)
+  if [[ "$PS1" == '\s-\v\$ ' ]]; then # default (empty) PS1
+    PS1='\[\e[0;38;5;40m\]*\[\e[0m\]\[\033[35m\]\t\[\033[m\]$(git-radar --bash) \$ '
+  fi
+fi
+
 export LOCALE_ARCHIVE=@glibcLocales@/lib/locale/locale-archive
 
 export EDITOR=vim
@@ -34,11 +43,12 @@ export JAVA_HOME="@jdk@"
 
 alias chromium-dark="chromium --enable-features=WebContentsForceDark"
 
+export NIX_SHELL_PRESERVE_PROMPT=1
 nxs() {
     sfile="@shells@/$1.nix"
     if [[ ! -f $sfile ]]; then
         echo "No shell named '$1' defined"
         return
     fi
-    nix-shell $sfile
+    PS1="\[\e[0;38;5;40m\]<$1>\[\e[0m\] $PS1" nix-shell $sfile
 }

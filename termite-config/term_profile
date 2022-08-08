@@ -1,8 +1,6 @@
-#!bin/bash
+#!/usr/bin/env bash
 
 stty -ixon
-
-PS1='\[\033[35m\]\t\[\033[m\]$(git-radar --bash) \$ '
 
 eval "$(dircolors -b ~/.dircolors)"
 alias ls='ls --color=auto'
