@@ -5,7 +5,7 @@ if [[ -z "$IN_NIX_SHELL"  ]]; then # special PS1 is set for nxs nix-shells
 fi
 if [[ -n "$IN_NIX_SHELL"  ]]; then # mark all nix-shells (custom)
   if [[ "$PS1" == '\s-\v\$ ' ]]; then # default (empty) PS1
-    PS1='\[\e[0;38;5;40m\]*\[\e[0m\]\[\033[35m\]\t\[\033[m\]$(git-radar --bash) \$ '
+    PS1='\[\e[0;38;5;40m\]*> \[\e[0m\]\[\033[35m\]\t\[\033[m\]$(git-radar --bash) \$ '
   fi
 fi
 
@@ -50,5 +50,5 @@ nxs() {
         echo "No shell named '$1' defined"
         return
     fi
-    PS1="\[\e[0;38;5;40m\]<$1>\[\e[0m\] $PS1" nix-shell $sfile
+    PS1="\[\e[0;38;5;40m\]$1>\[\e[0m\] $PS1" nix-shell $sfile
 }
