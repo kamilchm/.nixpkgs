@@ -24,6 +24,9 @@ in with pkgs; neovim.override {
       cmp-nvim-lsp
       cmp_luasnip
       luasnip
+      cmp-buffer
+      cmp-path
+      cmp-cmdline
       delimitMate
       tcomment_vim
       molokai
