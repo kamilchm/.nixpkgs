@@ -43,6 +43,14 @@ export JAVA_HOME="@jdk@"
 
 alias chromium-dark="chromium --enable-features=WebContentsForceDark"
 
+# Avoid duplicates
+HISTCONTROL=ignoredups:erasedups
+# When the shell exits, append to the history file instead of overwriting it
+shopt -s histappend
+
+# After each command, append to the history file and reread it
+PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
 export NIX_SHELL_PRESERVE_PROMPT=1
 nxs() {
     sfile="@shells@/$1.nix"
@@ -50,5 +58,10 @@ nxs() {
         echo "No shell named '$1' defined"
         return
     fi
-    PS1="\[\e[0;38;5;40m\]$1>\[\e[0m\] $PS1" nix-shell $sfile
+    mkdir -p "$HOME/.nxs_history"
+    touch "$HOME/.nxs_history/$1"
+    HISTSIZE=1000 HISTFILESIZE=1000 \
+    HISTFILE="$HOME/.nxs_history/$1" \
+    PS1="\[\e[0;38;5;40m\]$1>\[\e[0m\] $PS1" \
+    nix-shell $sfile
 }
