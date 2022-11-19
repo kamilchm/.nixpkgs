@@ -12,16 +12,15 @@ in with pkgs; neovim.override {
 
     packages.all.start = with pkgs.vimPlugins; with my_plugins; [
       ale
-      ctrlp
-      fruzzy
       vim-rooter
       vim-nix
-      fzfWrapper
-      vim-ripgrep
-      editorconfig-vim
+      fzf-lua
+      editorconfig-nvim
       nvim-lspconfig
       nvim-cmp
       cmp-nvim-lsp
+      lsp_signature-nvim
+      nvim-code-action-menu
       cmp_luasnip
       luasnip
       cmp-buffer
@@ -32,6 +31,7 @@ in with pkgs; neovim.override {
       molokai
       fugitive
       gitgutter
+      vim-indent-guides
       git-messenger-vim
       vim-airline
       vim-airline-themes

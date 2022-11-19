@@ -13,6 +13,6 @@ popd > /dev/null
 
 echo "Installing nix shells"
 rm -rf /nix/var/nix/gcroots/per-user/kamil/nxs-*
-find $(dirname "$0")/bash-config/shells/ -type f -regex ".*\.nix$" -printf "nix-instantiate --add-root /nix/var/nix/gcroots/per-user/kamil/nxs-%f %p -A buildInputs -A nativeBuildInputs | sed -e 's/!dev$//g' | xargs nix-build || exit 255\n" | xargs -I {} sh -c {}
+find $(dirname "$0")/bash-config/shells/ -maxdepth 1 -type f -regex ".*\.nix$" -printf "nix-instantiate --add-root /nix/var/nix/gcroots/per-user/kamil/nxs-%f %p -A buildInputs -A nativeBuildInputs | sed -e 's/!dev$//g' | xargs nix-build || exit 255\n" | xargs -I {} sh -c {}
 
 echo "Done"

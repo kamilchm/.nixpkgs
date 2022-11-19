@@ -25,6 +25,8 @@
       inherit (pkgs) stdenv;
     };
 
+    proximity-sort = import ./proximity-sort.nix { inherit (pkgs) lib fetchFromGitHub rustPlatform; };
+
     all = with pkgs; buildEnv {
       name = "all";
 
@@ -42,9 +44,9 @@
         patchelf
         patchutils
 
-        utillinux
+        # utillinux
         usbutils
-        inetutils
+        nettools
         wireshark-qt
         bind
         libressl.nc
@@ -53,6 +55,7 @@
         wavemon
 
         qtile
+        gnome.gnome-screenshot
         termite
         tilix
         nix-bash-completions
@@ -60,6 +63,7 @@
         powerline-fonts
         clipit
         xsel
+        xclip
         # ntfy
 
         pasystray
@@ -70,6 +74,8 @@
         arandr
 
         gnumake
+        bob
+        toast
 
         tree
         inotify-tools
@@ -77,6 +83,8 @@
         broot
         ripgrep
         fd
+        proximity-sort
+        comby
         ranger
         gdu
         my_vim
@@ -110,6 +118,7 @@
         tokei
         sqlite
         sqlite-utils
+        usql
         jq
         yq
         cue
@@ -126,6 +135,7 @@
         gcc
 
         nim
+        nimlsp
 
         glances
 
@@ -142,7 +152,7 @@
         inkscape
         graphicsmagick
         vokoscreen-ng
-
+        gromit-mpx
 
       ];
     };

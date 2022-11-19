@@ -119,7 +119,7 @@ screens = [
                 widget.GroupBox(),
                 widget.Prompt(),
                 widget.WindowName(),
-                widget.Notify(),
+                widget.Notify(scroll=True, scroll_step=2, width=700),
                 widget.Clipboard(),
                 widget.Battery(hide_threshold=99, format='{char} {percent:2.0%} {hour:d}:{min:02d}'),
                 widget.CPUGraph(graph_color='F8FF33',
@@ -191,7 +191,6 @@ def startup():
         execute_once(['clipit'])
         execute_once(['nm-applet'])
         execute_once(['pasystray'])
+        execute_once(['gromit-mpx'])
 
     Thread(target=blocking).start()
-
-

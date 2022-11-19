@@ -11,6 +11,7 @@ end
 
 -- general options
 cmd 'colorscheme molokai'
+opt.mouse = ''
 opt.syntax = 'on'
 opt.filetype = 'on'
 opt.expandtab = true
@@ -36,16 +37,60 @@ opt.termguicolors = true
 opt.background = 'dark'
 g.airline_theme = 'molokai'
 
--- ripgrep
-opt.grepprg = 'rg --'
-map('n', 'F', ':Rg<CR>')
+-- fzf
 
--- ctrlp
-g.ctrlp_user_command = 'fd -H --type f --color=never "" %s'
-g.ctrlp_use_caching = 0
+require'fzf-lua'.setup {
+  winopts = { preview = { hidden = 'hidden' } }
+}
 
-g['fruzzy#usenative'] = 1
-g.ctrlp_match_func = {match = 'fruzzy#ctrlp#matcher'}
+function getCwd(scope)
+  scope = scope or 'repo'
+  if(scope == 'repo') then
+    return require("fzf-lua.path").git_root(vim.loop.cwd(), true) or vim.loop.cwd()
+  elseif(scope == 'package') then
+    return vim.loop.cwd()
+  end
+end
+
+function fzf_defaults(scope)
+  local path = getCwd(scope)
+  return {
+    cwd = path,
+    fzf_cli_args = ('--header="cwd = %s"'):format(vim.fn.shellescape(path)),
+  }
+end
+
+function searchFiles(scope)
+  local opts = fzf_defaults(scope)
+  opts.cmd = vim.env.FZF_DEFAULT_COMMAND
+
+  if vim.fn.expand('%:p:h') ~= vim.loop.cwd() then
+    opts.cmd = opts.cmd .. (" | proximity-sort %s"):format(vim.fn.expand('%'))
+  end
+  opts.prompt = "> "
+  opts.fzf_opts = {
+    ['--info']      = 'inline',
+    ['--layout']    = 'reverse',
+    ['--tiebreak']  = 'index',
+  }
+  require("fzf-lua").files(opts)
+end
+
+function searchWord(scope)
+  require("fzf-lua").grep_cword(fzf_defaults(scope))
+end
+
+function liveGrep(scope)
+  require("fzf-lua").live_grep(fzf_defaults(scope))
+end
+
+map('n', '<C-p>', '<cmd>lua searchFiles("package")<cr>')
+map('n', '<C-a><C-p>', '<cmd>lua searchFiles("repo")<cr>')
+
+map('n', '<S-f>', '<cmd>lua searchWord("package")<cr>')
+
+map('n', '<C-f>', '<cmd>lua liveGrep("package")<cr>')
+map('n', '<C-a><C-f>', '<cmd>lua liveGrep("repo")<cr>')
 
 -- use CTRL+Space to autocomplete
 map('i', '<C-Space>', '<C-x><C-o>')
@@ -60,6 +105,26 @@ g['airline#extensions#ale#enabled'] = 1
 -- Error and warning signs.
 g.ale_sign_error = '⤫'
 g.ale_sign_warning = '⚠'
+
+g.ale_fix_on_save = 1
+-- g.ale_javascript_prettier_use_global = 1
+
+g.ale_linters = {
+  json = {'prettier'},
+  javascript = {'prettier', 'eslint'},
+  typescript = {'prettier', 'eslint'},
+  javascriptreact = {'prettier', 'eslint'},
+  typescriptreact = {'prettier', 'eslint'},
+}
+
+g.ale_fixers = {
+  ['*'] = {'remove_trailing_lines', 'trim_whitespace'},
+  json = {'prettier'},
+  javascript = {'prettier', 'eslint'},
+  typescript = {'prettier', 'eslint'},
+  javascriptreact = {'prettier', 'eslint'},
+  typescriptreact = {'prettier', 'eslint'},
+}
 
 -- disbale deno as a linter
 g.ale_linters_ignore = {
@@ -90,6 +155,14 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- json
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "json",
+  callback = function()
+    vim.opt_local.tabstop = 2
+  end,
+})
+
 -- markdown
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
@@ -116,14 +189,14 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, bufopts)
-  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', '<space>ca', '<cmd>CodeActionMenu<cr>', bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local lspconfig = require('lspconfig')
 
@@ -133,6 +206,9 @@ local luasnip = require 'luasnip'
 -- nvim-cmp setup
 local cmp = require 'cmp'
 cmp.setup {
+  completion = {
+    keyword_length = 2,
+  },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -146,6 +222,13 @@ cmp.setup {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
+    ["<esc>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.abort()
+      else
+        fallback()
+      end
+    end, {'i', 'c'}),
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -242,3 +325,5 @@ require'lspconfig'.terraform_lsp.setup{
     capabilities = capabilities,
     flags = lsp_flags,
 }
+
+require "lsp_signature".setup({})
