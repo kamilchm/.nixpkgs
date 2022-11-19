@@ -1,7 +1,7 @@
 with import <nixpkgs> {};
 
 mkShell {
-  buildInputs = [ nodejs-16_x python27 vips gobject-introspection pkgconfig cmake ungoogled-chromium ] ++
+  buildInputs = [ nodejs-16_x python27 vips gobject-introspection pkg-config cmake ungoogled-chromium ] ++
     (with nodePackages; [ yarn pnpm node-gyp node-gyp-build node-pre-gyp ]);
 
   LANG="en_US.UTF-8";
