@@ -83,6 +83,7 @@
         broot
         ripgrep
         fd
+        navi
         proximity-sort
         comby
         ranger
@@ -120,7 +121,9 @@
         sqlite-utils
         usql
         jq
+        fx
         yq
+        sampler
         cue
         jsonnet
 
@@ -137,7 +140,7 @@
         nim
         nimlsp
 
-        glances
+        htop
 
         docker-compose
         gparted

@@ -19,6 +19,10 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--ansi"
 export FZF_TMUX=0
 
+export FX_THEME=4
+
+eval "$(navi widget bash)"
+
 source @broot@/etc/profile.d/br.bash
 
 export ERL_AFLAGS="-kernel shell_history enabled"
