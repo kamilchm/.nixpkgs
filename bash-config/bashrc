@@ -58,14 +58,17 @@ PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a"
 export NIX_SHELL_PRESERVE_PROMPT=1
 nxs() {
     sfile="@shells@/$1.nix"
+    sname="*$1"
     if [[ ! -f $sfile ]]; then
-        echo "No shell named '$1' defined"
-        return
+        echo "No shell named '$1' defined, trying current dir as shell..."
+        sfile="shell.nix"
+        sname="$(basename `pwd`)"
+        #return
     fi
     mkdir -p "$HOME/.nxs_history"
     touch "$HOME/.nxs_history/$1"
     HISTSIZE=1000 HISTFILESIZE=1000 \
-    HISTFILE="$HOME/.nxs_history/$1" \
-    PS1="\[\e[0;38;5;40m\]$1>\[\e[0m\] $PS1" \
+    HISTFILE="$HOME/.nxs_history/$sname" \
+    PS1="\[\e[0;38;5;40m\]$sname>\[\e[0m\] $PS1" \
     nix-shell $sfile
 }
