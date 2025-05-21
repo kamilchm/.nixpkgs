@@ -33,6 +33,15 @@ opt.number = true
 opt.laststatus = 2
 opt.signcolumn = 'yes'
 
+-- Backup files
+-- Double slash to build file name from the complete path to the file with all path separators changed to percent '%' signs
+opt.backupdir = fn.expand('$HOME/.nvim-backup//')
+opt.backup = true
+opt.swapfile = false
+
+-- consider using timestamps and systemd cleanup job
+-- https://www.reddit.com/r/neovim/comments/wlkq0e/neovim_configuration_to_backup_files_with/
+
 opt.termguicolors = true
 opt.background = 'dark'
 g.airline_theme = 'molokai'
@@ -119,7 +128,8 @@ g.ale_linters = {
     javascript = {'prettier', 'eslint'},
     typescript = {'prettier', 'eslint'},
     javascriptreact = {'prettier', 'eslint'},
-    typescriptreact = {'prettier', 'eslint'}
+    typescriptreact = {'prettier', 'eslint'},
+    terraform = {'terraform', 'terraform_lsp'}
 }
 
 g.ale_fixers = {
@@ -128,7 +138,10 @@ g.ale_fixers = {
     javascript = {'prettier', 'eslint'},
     typescript = {'prettier', 'eslint'},
     javascriptreact = {'prettier', 'eslint'},
-    typescriptreact = {'prettier', 'eslint'}
+    typescriptreact = {'prettier', 'eslint'},
+    astro = {'prettier'},
+    rust = {'rustfmt'},
+    terraform = {'terraform'}
 }
 
 -- disbale deno as a linter
@@ -174,6 +187,13 @@ vim.api.nvim_create_autocmd("FileType", {
     callback = function() vim.opt_local.spell = true end
 })
 
+-- tiltfile
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
+    pattern = "*.tiltfile",
+    callback = function() vim.opt_local.filetype = "starlark" end
+})
+
+
 -- LSP
 map('n', 'E', vim.diagnostic.open_float)
 
@@ -191,10 +211,10 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-    vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, bufopts)
-    vim.keymap.set('n', '<space>ca', '<cmd>CodeActionMenu<cr>', bufopts)
+    vim.keymap.set('n', '<F2>', vim.lsp.util.rename, bufopts)
+    vim.keymap.set('n', 'ca', require("actions-preview").code_actions)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-    vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+    vim.keymap.set('n', '<space>f', vim.lsp.buf.format, bufopts)
 end
 
 -- Add additional capabilities supported by nvim-cmp
@@ -275,7 +295,7 @@ local lsp_flags = {
     -- This is the default in Nvim 0.7+
     debounce_text_changes = 150
 }
-require('lspconfig')['nimls'].setup {
+require('lspconfig')['nim_langserver'].setup {
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags
@@ -290,12 +310,12 @@ require('lspconfig')['pyright'].setup {
     capabilities = capabilities,
     flags = lsp_flags
 }
-require('lspconfig')['tsserver'].setup {
+require('lspconfig')['ts_ls'].setup {
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,
     cmd = {
-        'pnpm', '--package=typescript-language-server', '--package=typescript',
+        'pnpm', '--package=typescript-language-server@3.3.2', '--package=typescript',
         'dlx', 'typescript-language-server', '--stdio'
     }
 }
@@ -309,7 +329,11 @@ require('lspconfig')['rust_analyzer'].setup {
     capabilities = capabilities,
     flags = lsp_flags,
     -- Server-specific settings...
-    settings = {["rust-analyzer"] = {}}
+    settings = {["rust-analyzer"] = {
+        checkOnSave = {
+            command = "clippy";
+        }
+    }}
 }
 require('lspconfig')['dockerls'].setup {
     on_attach = on_attach,

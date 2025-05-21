@@ -1,0 +1,8 @@
+esbenp.prettier-vscode
+ginfuru.better-nunjucks
+kilocode.kilo-code
+ms-azuretools.vscode-docker
+ms-vscode-remote.remote-containers
+nonylene.dark-molokai-theme
+qwtel.sqlite-viewer
+vscodevim.vim

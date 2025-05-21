@@ -2,7 +2,13 @@
   allowUnfree = true;
   android_sdk.accept_license = true;
 
-  packageOverrides = pkgs_: with pkgs_; {
+  permittedInsecurePackages = [
+    "python-2.7.18.8"
+  ];
+
+  security.chromiumSuidSandbox.enable = true;
+
+  packageOverrides = pkgs_: with pkgs_; rec {
 
     gtk-config = import ./gtk-config {
       inherit (pkgs) stdenv materia-theme;
@@ -11,9 +17,9 @@
       inherit (pkgs) stdenv;
       vte = vte;
     };
-    qtile-config = import ./qtile-config {
-      inherit (pkgs) stdenv;
-    };
+    # qtile-config = import ./qtile-config {
+    #   inherit (pkgs) stdenv xfce blueman;
+    # };
     bash-config = import ./bash-config {
       inherit (pkgs) stdenv bashInteractive glibcLocales fzf broot; inherit jdk;
     };
@@ -24,8 +30,9 @@
     tig-config = import ./tig-config {
       inherit (pkgs) stdenv;
     };
-
-    proximity-sort = import ./proximity-sort.nix { inherit (pkgs) lib fetchFromGitHub rustPlatform; };
+    vscode-config = import ./vscode {
+      inherit (pkgs) stdenv; neovim = my_vim;
+    };
 
     all = with pkgs; buildEnv {
       name = "all";
@@ -33,16 +40,18 @@
       paths = [
         gtk-config
         termite-config
-        qtile-config
+        #qtile-config
         bash-config
         elixir-config
         tig-config
+        vscode-config
 
         # nix-prefetch-scripts
         nixpkgs-lint
         nox
         patchelf
         patchutils
+        nurl
 
         # utillinux
         usbutils
@@ -53,15 +62,17 @@
         socat
         websocat
         wavemon
+        whois
 
-        qtile
-        gnome.gnome-screenshot
+        #qtile
+        hyprland
+        gnome-screenshot
         termite
         tilix
         nix-bash-completions
         progress
         powerline-fonts
-        clipit
+        #clipit
         xsel
         xclip
         # ntfy
@@ -90,6 +101,7 @@
         gdu
         my_vim
         vscode
+        static-web-server
 
         aspell
         aspellDicts.en
@@ -102,6 +114,7 @@
         gitg
         meld
         tig
+        difftastic
 
         zip
         unzip
@@ -112,8 +125,10 @@
 
         firefox-bin
         ungoogled-chromium
-        google-chrome
-        httpie
+        # alsaPlugins # https://github.com/NixOS/nixpkgs/issues/6860
+        # microsoft-edge
+        #google-chrome
+        xh
         mitmproxy
 
         tokei
@@ -141,6 +156,7 @@
         nimlsp
 
         htop
+        below
 
         docker-compose
         gparted
@@ -149,12 +165,13 @@
         evince
         libreoffice
         vlc
+        spot
         ffmpeg
-        gthumb
+        #gthumb
         pinta
-        inkscape
+        #inkscape
         graphicsmagick
-        vokoscreen-ng
+        #vokoscreen-ng
         gromit-mpx
 
       ];

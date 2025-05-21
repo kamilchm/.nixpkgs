@@ -19,6 +19,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--ansi"
 export FZF_TMUX=0
 
+export FX_LANG=js
 export FX_THEME=4
 
 eval "$(navi widget bash)"
@@ -35,10 +36,9 @@ export DOCKER_BUILDKIT=1
 
 export PATH="/home/kamil/.nimble/bin:$GOPATH/bin:/home/kamil/.nix-profile/bin:$PATH"
 
-export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
-
 source /etc/profile.d/bash_completion.sh
 export XDG_DATA_DIRS="$HOME/.nix-profile/share:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
+export XCURSOR_PATH=$HOME/.local/share/icons:$HOME/.nix-profile/share/icons:/usr/share/icons
 
 export JAVA_HOME="@jdk@"
 

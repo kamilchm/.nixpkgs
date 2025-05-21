@@ -15,12 +15,14 @@ in with pkgs; neovim.override {
       vim-rooter
       vim-nix
       fzf-lua
+      nvim-rg
       editorconfig-nvim
       nvim-lspconfig
       nvim-cmp
       cmp-nvim-lsp
       lsp_signature-nvim
-      nvim-code-action-menu
+      telescope-nvim
+      actions-preview-nvim
       cmp_luasnip
       luasnip
       cmp-buffer
@@ -31,16 +33,19 @@ in with pkgs; neovim.override {
       molokai
       fugitive
       gitgutter
+      diffconflicts
       vim-indent-guides
       git-messenger-vim
       vim-airline
       vim-airline-themes
       sleuth
+      vim-fetch
       rust-vim
       zig-vim
       vim-go
       vim-javascript
       vim-jsx-pretty
+      markdown-preview-nvim
       yats-vim
       vim-graphql
       vim-vue
@@ -51,11 +56,13 @@ in with pkgs; neovim.override {
       alchemist-vim
       vim-ocaml
       vim-terraform
+      starlark-vim
       purescript-vim
       haskell-vim
       dhall-vim
       vim-toml
       vim-pug
+      vim-astro
       hexmode
     ];
   };
