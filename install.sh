@@ -19,4 +19,9 @@ find $(dirname "$0")/bash-config/shells/ -maxdepth 1 -type f -regex ".*\.nix$" -
 
 ./vscode/install_extensions.sh
 
+echo "Applying GTK theme settings"
+if [ -x "$HOME/.nixpkgs/gtk-config/apply.sh" ]; then
+  "$HOME/.nixpkgs/gtk-config/apply.sh"
+fi
+
 echo "Done"
