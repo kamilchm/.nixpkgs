@@ -39,6 +39,15 @@ opt.backupdir = fn.expand('$HOME/.nvim-backup//')
 opt.backup = true
 opt.swapfile = false
 
+-- diff config
+opt.diffopt:append({
+    "iwhite",
+    "vertical",
+    "filler",
+    "algorithm:histogram",
+    "indent-heuristic"
+})
+
 -- consider using timestamps and systemd cleanup job
 -- https://www.reddit.com/r/neovim/comments/wlkq0e/neovim_configuration_to_backup_files_with/
 
