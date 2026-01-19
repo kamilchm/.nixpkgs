@@ -1,4 +1,4 @@
-{ stdenv, bashInteractive, glibcLocales, fzf, broot, jdk }:
+{ stdenv, bashInteractive, glibcLocales, fzf, broot, jdk, nodejs_24 }:
 
 stdenv.mkDerivation rec {
   name = "bash-config";
@@ -19,6 +19,8 @@ stdenv.mkDerivation rec {
       --subst-var-by broot ${broot}
     substituteInPlace $out/userHome/.bashrc \
       --subst-var-by jdk ${jdk}
+    substituteInPlace $out/userHome/.bashrc \
+      --subst-var-by npm ${nodejs_24}/bin/npm
 
     cp -R $src/shells $out/shells
     substituteInPlace $out/userHome/.bashrc \

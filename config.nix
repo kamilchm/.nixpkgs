@@ -21,7 +21,7 @@
     #   inherit (pkgs) stdenv xfce blueman;
     # };
     bash-config = import ./bash-config {
-      inherit (pkgs) stdenv bashInteractive glibcLocales fzf broot; inherit jdk;
+      inherit (pkgs) stdenv bashInteractive glibcLocales fzf broot nodejs_24; inherit jdk;
     };
     my_vim = import ./vim-config { inherit pkgs ; };
     elixir-config = import ./elixir-config {

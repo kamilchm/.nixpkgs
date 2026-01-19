@@ -72,3 +72,8 @@ nxs() {
     PS1="\[\e[0;38;5;40m\]$sname>\[\e[0m\] $PS1" \
     nix-shell $sfile
 }
+
+export PATH="$HOME/.npmg/bin:$PATH"
+npmig() {
+  PREFIX=~/.npmg @npm@ install -g $*
+}
