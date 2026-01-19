@@ -363,3 +363,52 @@ require"lsp_signature".setup({
     toggle_key = '<C-x>',
     select_signature_key = '<C-s>'
 })
+
+function CopySelectionWithFileRef()
+    local filepath = vim.fn.expand('%:p')
+    local start_pos = vim.fn.getpos("'<")
+    local end_pos = vim.fn.getpos("'>")
+
+    if start_pos[2] == 0 or end_pos[2] == 0 then
+        vim.notify('No visual selection', vim.log.levels.WARN)
+        return
+    end
+
+    local start_line = start_pos[2]
+    local end_line = end_pos[2]
+    local start_col = start_pos[3]
+    local end_col = end_pos[4]
+
+    local lines = vim.api.nvim_buf_get_lines(0, start_line - 1, end_line, false)
+    local text
+    if start_line == end_line then
+        text = lines[1]:sub(start_col, end_col - 1)
+    else
+        text = table.concat(lines, '\n')
+    end
+
+    local prefix
+    local line_length = #lines[1]
+    local is_whole_line = start_col == 1 and end_col > line_length
+
+    if start_line == end_line then
+        if is_whole_line then
+            prefix = string.format('%s:%d', filepath, start_line)
+        else
+            prefix = string.format('%s:%d:%d-%d', filepath, start_line, start_col, end_col - 1)
+        end
+    else
+        prefix = string.format('%s:%d-%d', filepath, start_line, end_line)
+    end
+
+    local result = prefix .. ':\n' .. text
+
+    vim.fn.setreg('+', result)
+    vim.fn.setreg('*', result)
+
+    vim.notify('Copied: ' .. prefix, vim.log.levels.INFO)
+end
+
+vim.api.nvim_create_user_command('CopySelectionWithFileRef', CopySelectionWithFileRef, {range = true})
+
+map('v', '<C-y>', ':CopySelectionWithFileRef<cr>')
