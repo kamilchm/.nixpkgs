@@ -230,7 +230,7 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-local lspconfig = require('lspconfig')
+local lspconfig = vim.lsp.config
 
 -- luasnip setup
 local luasnip = require 'luasnip'
@@ -304,22 +304,22 @@ local lsp_flags = {
     -- This is the default in Nvim 0.7+
     debounce_text_changes = 150
 }
-require('lspconfig')['nim_langserver'].setup {
+lspconfig('nim_langserver', {
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags
-}
-require('lspconfig')['ocamllsp'].setup {
+})
+lspconfig('ocamllsp', {
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags
-}
-require('lspconfig')['pyright'].setup {
+})
+lspconfig('pyright', {
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags
-}
-require('lspconfig')['ts_ls'].setup {
+})
+lspconfig('ts_ls', {
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,
@@ -327,13 +327,13 @@ require('lspconfig')['ts_ls'].setup {
         'pnpm', '--package=typescript-language-server@3.3.2', '--package=typescript',
         'dlx', 'typescript-language-server', '--stdio'
     }
-}
-require('lspconfig')['zls'].setup {
+})
+lspconfig('zls', {
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags
-}
-require('lspconfig')['rust_analyzer'].setup {
+})
+lspconfig('rust_analyzer', {
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,
@@ -343,8 +343,8 @@ require('lspconfig')['rust_analyzer'].setup {
             command = "clippy";
         }
     }}
-}
-require('lspconfig')['dockerls'].setup {
+})
+lspconfig('dockerls', {
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,
@@ -352,12 +352,12 @@ require('lspconfig')['dockerls'].setup {
         'pnpm', 'dlx', "dockerfile-language-server-nodejs", "docker-langserver",
         "--stdio"
     }
-}
-require'lspconfig'.terraform_lsp.setup {
+})
+lspconfig('terraform_lsp', {
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags
-}
+})
 
 require"lsp_signature".setup({
     toggle_key = '<C-x>',
