@@ -389,7 +389,7 @@ function CopySelectionWithFileRef()
 
     local prefix
     local line_length = #lines[1]
-    local is_whole_line = start_col == 1 and end_col > line_length
+    local is_whole_line = start_col == 1 and (end_col == 0 or end_col >= line_length)
 
     if start_line == end_line then
         if is_whole_line then
