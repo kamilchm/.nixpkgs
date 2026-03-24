@@ -364,6 +364,12 @@ require"lsp_signature".setup({
     select_signature_key = '<C-s>'
 })
 
+local pi_nvim_path = os.getenv("HOME") .. "/.pi/agent/git/github.com/carderne/pi-nvim"
+if vim.uv.fs_stat(pi_nvim_path) then
+    vim.opt.runtimepath:prepend(pi_nvim_path)
+    require("pi-nvim").setup()
+end
+
 function CopySelectionWithFileRef()
     local filepath = vim.fn.expand('%:p')
     local start_pos = vim.fn.getpos("'<")
