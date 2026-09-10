@@ -1,0 +1,2 @@
+# nix build outputs (e.g. from nix-build --no-out-link misses or manual builds)
+result*
