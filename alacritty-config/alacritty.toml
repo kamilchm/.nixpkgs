@@ -1,0 +1,49 @@
+[general]
+import = [
+  "~/.config/alacritty/dank-theme.toml"
+]
+
+[window]
+decorations = "None"
+padding = { x = 6, y = 4 }
+opacity = 1.0
+dynamic_title = true
+
+[scrolling]
+history = 3023
+
+[font]
+size = 12
+
+[font.normal]
+family = "DejaVu Sans Mono"
+style = "Regular"
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+blink_interval = 500
+unfocused_hollow = true
+
+[mouse]
+hide_when_typing = true
+
+[selection]
+save_to_clipboard = false
+
+[bell]
+duration = 0
+
+[keyboard]
+bindings = [
+  { key = "C",      mods = "Control|Shift", action = "Copy" },
+  { key = "V",      mods = "Control|Shift", action = "Paste" },
+  { key = "N",      mods = "Control|Shift", action = "CreateNewWindow" },
+  { key = "Equals", mods = "Control|Shift", action = "IncreaseFontSize" },
+  { key = "Minus",  mods = "Control",       action = "DecreaseFontSize" },
+  { key = "Key0",   mods = "Control",       action = "ResetFontSize" },
+  { key = "Enter",  mods = "Shift",         chars = "\n" },
+]
+
+[colors.selection]
+text = '#fefefe'
+background = '#2e5c8a'

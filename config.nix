@@ -20,11 +20,17 @@
     gtk-config = import ./gtk-config {
       inherit (pkgs) stdenv;
     };
+    alacritty-config = import ./alacritty-config {
+      inherit (pkgs) stdenv;
+    };
+    starship-config = import ./starship-config {
+      inherit (pkgs) stdenv;
+    };
     # qtile-config = import ./qtile-config {
     #   inherit (pkgs) stdenv xfce blueman;
     # };
     bash-config = import ./bash-config {
-      inherit (pkgs) stdenv bashInteractive glibcLocales fzf broot nodejs_24; inherit jdk;
+      inherit (pkgs) stdenv bashInteractive glibcLocales fzf broot nodejs_24 vte; inherit jdk;
     };
     my_vim = import ./vim-config { inherit pkgs ; };
     elixir-config = import ./elixir-config {
@@ -44,6 +50,8 @@
         niri-config
         dank-config
         gtk-config
+        alacritty-config
+        starship-config
         adw-gtk3
         #qtile-config
         bash-config
@@ -72,7 +80,6 @@
         #qtile
         #hyprland
         gnome-screenshot
-        tilix
         nix-bash-completions
         progress
         powerline-fonts
@@ -116,7 +123,7 @@
         aspellDicts.pl
 
         git
-        git-radar
+        starship
         gitg
         meld
         tig

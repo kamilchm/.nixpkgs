@@ -1,0 +1,29 @@
+# Prompt form mirrors the old git-radar PS1: time, git:(branch status), $
+# Note: style "purple" is ANSI 35, the same code the old PS1 used (\033[35m).
+format = "${custom.nixprefix}$time$git_branch$git_status$character"
+
+# No blank line between prompts (the old PS1 had none either).
+add_newline = false
+
+[custom.nixprefix]
+command = "printf '%s' \"$STARSHIP_NIX_PREFIX\""
+when = "test -n \"$STARSHIP_NIX_PREFIX\""
+format = "[$output](bold green) "
+
+[time]
+disabled = false
+format = "[$time]($style) "
+style = "purple"
+time_format = "%T"
+
+[git_branch]
+symbol = "git:\\("
+format = "[$symbol$branch]($style) "
+style = "white"
+
+[git_status]
+format = "[$all_status$ahead_behind](yellow)\\) "
+
+[character]
+success_symbol = "[\\$](white) "
+error_symbol = "[\\$](bold red) "
