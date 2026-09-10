@@ -1,12 +1,10 @@
 source ~/.term_profile
 
-if [[ -z "$IN_NIX_SHELL"  ]]; then # special PS1 is set for nxs nix-shells
-  PS1='\[\033[35m\]\t\[\033[m\]$(git-radar --bash) \$ '
+if command -v starship >/dev/null 2>&1; then # starship owns the prompt: time, git, $
+  eval "$(starship init bash)"
 fi
-if [[ -n "$IN_NIX_SHELL"  ]]; then # mark all nix-shells (custom)
-  if [[ "$PS1" == '\s-\v\$ ' ]]; then # default (empty) PS1
-    PS1='\[\e[0;38;5;40m\]*> \[\e[0m\]\[\033[35m\]\t\[\033[m\]$(git-radar --bash) \$ '
-  fi
+if [[ -n "$IN_NIX_SHELL" && "$PS1" == '\s-\v\$ ' ]]; then # mark plain nix-shells (custom)
+  export STARSHIP_NIX_PREFIX="${STARSHIP_NIX_PREFIX:-*> }"
 fi
 
 export LOCALE_ARCHIVE=@glibcLocales@/lib/locale/locale-archive
@@ -34,7 +32,7 @@ export GOPATH="/home/kamil"
 
 export DOCKER_BUILDKIT=1
 
-export PATH="/home/kamil/.nimble/bin:$GOPATH/bin:/home/kamil/.nix-profile/bin:$PATH"
+export PATH="$HOME/.cargo/bin:/home/kamil/.nimble/bin:$GOPATH/bin:/home/kamil/.nix-profile/bin:$PATH"
 
 source /etc/profile.d/bash_completion.sh
 export XDG_DATA_DIRS="$HOME/.nix-profile/share:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
@@ -69,11 +67,17 @@ nxs() {
     touch "$HOME/.nxs_history/$1"
     HISTSIZE=1000 HISTFILESIZE=1000 \
     HISTFILE="$HOME/.nxs_history/$sname" \
-    PS1="\[\e[0;38;5;40m\]$sname>\[\e[0m\] $PS1" \
+    STARSHIP_NIX_PREFIX="$sname> " \
     nix-shell $sfile
+}
+
+des() {
+  devenv shell $*
 }
 
 export PATH="$HOME/.npmg/bin:$PATH"
 npmig() {
-  PREFIX=~/.npmg @npm@ install -g $*
+  PREFIX=~/.npmg PATH="@node_path@/bin:$PATH" npm install -g $*
 }
+
+export PATH="$HOME/bin:$PATH"

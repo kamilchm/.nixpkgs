@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+stty -ixon
+
+eval "$(dircolors -b ~/.dircolors)"
+alias ls='ls --color=auto'
+
+. @vte@/etc/profile.d/vte.sh
+if command -v __vte_prompt_command >/dev/null 2>&1; then
+  __vte_prompt_command
+fi
+export TERM="xterm-256color"
