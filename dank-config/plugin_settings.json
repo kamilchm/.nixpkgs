@@ -1,0 +1,15 @@
+{
+  "dockerManager": {
+    "enabled": true,
+    "groupByCompose": false
+  },
+  "alarmClock": {
+    "enabled": true
+  },
+  "emojiLauncher": {
+    "enabled": true
+  },
+  "dankPomodoroTimer": {
+    "enabled": true
+  }
+}

@@ -1,4 +1,4 @@
-{stdenv, materia-theme}:
+{stdenv}:
 
 stdenv.mkDerivation rec {
   name = "gtk-config";
@@ -8,11 +8,9 @@ stdenv.mkDerivation rec {
   src = ./.;
 
   installPhase = ''
-    install -dm 755 $out/userHome
-    cp $src/gtkrc-2.0 $out/userHome/.gtkrc-2.0
-    install -dm 755 $out/userHome/.config/gtk-3.0
-    cp -dr --no-preserve='ownership' $src/settings.ini $out/userHome/.config/gtk-3.0
-    install -dm 755 $out/userHome/.local/share/themes
-    cp -dr --no-preserve='ownership' ${materia-theme}/share/themes/* $out/userHome/.local/share/themes/
+    install -dm 755 $out/userHomeCopy
+    cp $src/gtkrc-2.0 $out/userHomeCopy/.gtkrc-2.0
+    install -dm 755 $out/userHomeCopy/.config/gtk-3.0
+    cp -dr --no-preserve='ownership' $src/settings.ini $out/userHomeCopy/.config/gtk-3.0
   '';
 }

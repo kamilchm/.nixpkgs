@@ -3,19 +3,22 @@
   android_sdk.accept_license = true;
 
   permittedInsecurePackages = [
-    "python-2.7.18.8"
+    "python-2.7.18.12"
+    "docker-28.5.2"
   ];
 
   security.chromiumSuidSandbox.enable = true;
 
   packageOverrides = pkgs_: with pkgs_; rec {
 
-    gtk-config = import ./gtk-config {
-      inherit (pkgs) stdenv materia-theme;
-    };
-    termite-config = import ./termite-config {
+    niri-config = import ./niri-config {
       inherit (pkgs) stdenv;
-      vte = vte;
+    };
+    dank-config = import ./dank-config {
+      inherit (pkgs) stdenv;
+    };
+    gtk-config = import ./gtk-config {
+      inherit (pkgs) stdenv;
     };
     # qtile-config = import ./qtile-config {
     #   inherit (pkgs) stdenv xfce blueman;
@@ -30,21 +33,23 @@
     tig-config = import ./tig-config {
       inherit (pkgs) stdenv;
     };
-    vscode-config = import ./vscode {
-      inherit (pkgs) stdenv; neovim = my_vim;
-    };
+    #vscode-config = import ./vscode {
+    #  inherit (pkgs) stdenv; neovim = my_vim;
+    #};
 
     all = with pkgs; buildEnv {
       name = "all";
 
       paths = [
+        niri-config
+        dank-config
         gtk-config
-        termite-config
+        adw-gtk3
         #qtile-config
         bash-config
         elixir-config
         tig-config
-        vscode-config
+        #vscode-config
 
         # nix-prefetch-scripts
         nixpkgs-lint
@@ -65,9 +70,8 @@
         whois
 
         #qtile
-        hyprland
+        #hyprland
         gnome-screenshot
-        termite
         tilix
         nix-bash-completions
         progress
@@ -85,7 +89,7 @@
         arandr
 
         gnumake
-        bob
+        #bob
         toast
 
         tree
@@ -96,11 +100,13 @@
         fd
         navi
         proximity-sort
-        comby
+        #comby
         ranger
         gdu
         my_vim
-        vscode
+        #devenv installed from tarball
+        direnv
+        #vscode
         static-web-server
 
         aspell
@@ -172,8 +178,6 @@
         #inkscape
         graphicsmagick
         #vokoscreen-ng
-        gromit-mpx
-
       ];
     };
   };
